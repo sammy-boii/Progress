@@ -1,0 +1,7 @@
+$black : #000000;
+$white : #ffffff;
+$yellow: #e7e300;
+
+@mixin bg ($color){ 
+    background-color: $color;
+}

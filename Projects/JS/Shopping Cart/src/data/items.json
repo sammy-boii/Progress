@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "The Lisa Mona", 
+        "price": 10000000000000, 
+        "In Stock": 1,
+        "imgUrl": "/assets/img1.png"
+    },
+    {
+        "id": 2,
+        "name": "Praga's GT-R", 
+        "price": 1300115, 
+        "In Stock": 3,
+        "imgUrl": "/assets/img2.png"
+
+    },    {
+        "id": 3,
+        "name": "Swiss Cheese", 
+        "price": 6.05, 
+        "In Stock": 66,
+        "imgUrl": "/assets/img3.png"
+
+    },    {
+        "id": 4,
+        "name": "Samsung Z Flip 3", 
+        "price": 1755, 
+        "In Stock": 11,
+        "imgUrl": "/assets/img4.png"
+
+    },    {
+        "id": 5,
+        "name": "Ticket to the Sun (One Way)", 
+        "price": 0.00, 
+        "In Stock": 0,
+        "imgUrl": "/assets/img5.png"
+
+    }
+]

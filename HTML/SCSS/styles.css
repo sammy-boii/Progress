@@ -1,0 +1,19 @@
+body {
+  color: #000000;
+  background: rgb(25, 235, 70);
+}
+body .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  height: 5px;
+  width: 3px;
+}
+button:hover {
+  background-color: pink;
+  color: white;
+  transform: translate(5px);
+}

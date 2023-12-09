@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+
+:root { 
+    --primary-blue: #007BFF;
+}
+
+*, *::before, *::after { 
+    box-sizing: border-box;
+    font-family: 'Young Serif', serif;
+    scroll-behavior: smooth;
+
+}
+
+html, body { 
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 2vh;
+    height: 10vh;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #e7e7e7;
+    border: 1px solid #cacaca;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #9c9999;
+}
+
+
+body { 
+    background-color: #e7e7e7;
+    margin: 0;
+    min-height: 100vh;
+}
+
+nav { 
+    background-color: rgb(226, 223, 223);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;         /* needed for sticky */
+    height: 4em;
+    width: 100vw;
+    margin-bottom: 1.2em;
+    z-index: 100;
+}
+
+svg { 
+    fill: white;
+    width: 1.5em;
+    height: 1em;
+}
+
+nav a { 
+    padding: 30px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 1000;
+    scale: 1.3;
+}
+
+.shopping-cart-btn {
+    border-radius: 50%;
+    position: absolute;
+    background: var(--primary-blue);
+    border: none;
+    right: 3.7em;
+    aspect-ratio: 1/1;
+    transition: 500ms;
+    scale: 1.3;
+}
+
+
+
+.shopping-cart-btn svg { 
+    height: 1.7em;
+    width: 1.8em;;
+}
+
+nav path, text { 
+    fill: #000 !important;
+}
+
+.shopping-cart-btn path { 
+    scale: .8;
+    fill: white !important;
+}
+
+
+.shopping-cart-btn:hover { 
+    background: #f0f0f0f1;
+    cursor: pointer;
+}
+
+.shopping-cart-btn:hover path {
+    fill  : var(--primary-blue) !important;
+}
+
+/* without !important it was unhinged prolly cuz of the !important before */
+
+.card-container { 
+    transform-style: preserve-3d;
+    perspective: 500px;
+    position: relative;
+}
+
+/* this is for the navbar icons */
+
+.front { 
+    backface-visibility: hidden;
+    transition: transform 500ms;
+}
+
+.back { 
+    position: absolute;
+    transform: rotateX(180deg);
+    backface-visibility: hidden;
+    top: 0;
+    transition: transform 500ms;
+}
+
+.card-container:hover { 
+    cursor: pointer;
+    .front { 
+        transform: rotateX(180deg);
+    }
+    .back { 
+        transform: rotateX(0deg);
+
+    }
+}
+
+.welcome { 
+    font-size: x-large;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

@@ -1,0 +1,60 @@
+// ? Save the file and compiled version fo CSS will be created.
+
+// ? SASS (Syntactically Awesome Style Sheets) and SCSS (Sassy CSS) are both extensions of CSS. Sass is a pre-processor that kinda compiles the code and SCSS is the syntax.
+
+// ? The _ indicates that partial CSS file should not be compiled as a standalone program but is instead meant to be imported
+
+// ? In CSS @import is used to import
+
+// ? .map is used to compare and debug the sccs file and the minifed css file
+
+// ? Just look at the CSS to see how it all compiles
+
+
+@import '../variables';
+
+$green : rgb(25, 235, 70);
+
+// variables have scope in CSS as well 
+
+@mixin box { 
+    border: 1px black solid;
+    height: 100vh;
+    width: 100vw;
+}
+
+body { 
+    color: $black;
+    background: $green;
+    width: 50%;
+
+    .header { 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+button { 
+    height: 5px;
+    width: 3px;
+    &:hover {
+        background-color: pink;
+        color: white;
+        transform: translate(5px);
+    }
+    &::after { 
+        content: 'Click Me';
+    }
+}
+
+div { 
+    @include box();
+    @include bg(green);
+}
+
+p { 
+    @extend body;
+    width: 100% - 40%;
+
+}

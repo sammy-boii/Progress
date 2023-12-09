@@ -1,0 +1,36 @@
+.btn { 
+    width: 1rem;
+    border: none;
+    padding: .4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1rem;
+    font-family: sans-serif;
+    background: inherit;
+    font-size: 1.7em;
+    cursor: pointer;
+    transition: 300ms ease;
+    scale: 1.2;
+}
+
+.shopping-cart-preview { 
+    background-color: rgba(222,222,222,0.9) !important;
+}
+
+.btn:hover { 
+    color: #fff;
+    background: #000;
+}
+
+.svg { 
+    font-size: x-large;
+    fill: black;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+svg:hover { 
+    fill: red;
+}
+
