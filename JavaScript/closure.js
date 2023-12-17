@@ -1,4 +1,3 @@
-
 /*
 
 Lexical scoping / Static scoping refers to the ability of a function scope to access variables from the parent scope. 
@@ -7,18 +6,15 @@ It is a property intrinsic only to function scopes. A simple example is if a var
 
 */
 
-
-function outerFunction(outerVar) 
-{
-    return function innerFunction(innerVar) 
-    {
-        console.log("OuterVar" + outerVar);
-        console.log("InnerVar" + innerVar);
-    }
+function outerFunction(outerVar) {
+  return function innerFunction(innerVar) {
+    console.log("OuterVar" + outerVar);
+    console.log("InnerVar" + innerVar);
+  };
 }
 
-const newFunction = outerFunction('outside');
-newFunction('inside');
+const newFunction = outerFunction("outside");
+newFunction("inside");
 
 /*
 

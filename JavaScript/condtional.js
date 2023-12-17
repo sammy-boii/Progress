@@ -50,4 +50,8 @@ Math.floor basically rounds down...
 0.91 => 0
 4.69 => 4
 2.22 => 2
+
+break skips prematurely terminates the whole loop. So even if there are more iterations left, it says SIKE!!
+continue skips the current loop and skips over to the next one
+
 */

@@ -1,74 +1,95 @@
-8**2;
-// That is equivalent to 8^2
+// * Arithmetic Operators:
 
-// + - / % * are Arithmetic Operators
+a + b;
+a - b;
+a * b;
+a / b;
+a ** b;
+a % b;
+a ^ b;
 
-// Following are Assignment Operators
+// * Assignment Operators
 
 let x;
-x+=5;
-x=x+5;
+x += 5;
+x = x + 5;
 
-x-=5;
-x=x-5;
+x -= 5;
+x = x - 5;
 
-x/=5;
-x=x/5;
+x /= 5;
+x = x / 5;
 
-x*=5;
-x=x*5;
+x *= 5;
+x = x * 5;
 
 x++;
-x=x+1;
+x = x + 1;
 
 x--;
-x=x-1;
+x = x - 1;
 
-x=10;
-y='10';
+x = 10;
+y = "10";
 
-x==y;
-x===y;
+// * Logical Operator:
 
-// first returns true as value is same but second returns false cuz even though datatype is different
+x == y;
+x === y;
 
-x===Number(y);
+x != y;
+x !== y;
 
-// now this is true
+console.log(undefined || 0 || 2 || 1); // returns the first truthy value : 2
 
-x!=y;
+console.log(undefined && 0 && 2 && 1); // returns the first falsey value : undefined
 
-// this is false cuz datatype don't matter
+if ((a > b && b < a) || (b > a && b < a)) console.log("yellow");
 
-x!==y;
+console.log(!(20 === 20)); // false
 
-// now this is true cuz datatype matters
+// * Membership Operator:
 
-// so !== and === sees datatype and value where == and != only sees value
+// Checks if a property exists in an object or an index exists in an array
 
-const myObj1={
-    property1: 20,
-  property2: 'random'
-  }; 
-  
-  const myObj2={
-    property1: 20,
-  property2: 'random'
-  }; 
-  
-  myObj1==myObj2;
-  myObj1===myObj2;
-  
-  // both give false and only when u compare the object with itself it gives true. same for arrays
+const obj = { key1: 1 };
+const arr = ["a", "b", "c"];
 
-  
-!(20==20)
+console.log("key1" in obj); // true
 
-// false
+console.log(1 in arr); // true
+console.log(3 in arr); // false
+
+// to check for the actual value:
+
+console.log(arr.includes("a")); // true
+
+// * Difference between == and ===
+
+// For primitive,
+
+a = 5;
+b = "5";
+
+a == b; // true cuz values are equal
+a === b; // false cuz datatypes are different
+
+// For non primitive,
+
+const obj1 = { a: 1 };
+const obj2 = { a: 1 };
+
+obj1 == obj2; // false cuz different reference
+obj1 === obj2; // false cuz different reference
+
+obj3 = obj1;
+
+obj3 == obj1; // true cuz same reference
+obj3 === obj1; // true cuz same reference
 
 // Ternary Operator
 
-const res = 20 === 20 ? 'values match' : 'values do not match';
+const res = 20 === 20 ? "values match" : "values do not match";
 
 /*
 
@@ -78,13 +99,12 @@ true basically if statement
 
 */
 
-function sum (a,b,c,d,e)
-{
-  let total = a+b+c+d+e;
+function sum(a, b, c, d, e) {
+  let total = a + b + c + d + e;
   return total;
 }
-let nums = [1,2,3,4,5];
-const total = sum(...nums);   
+let nums = [1, 2, 3, 4, 5];
+const total = sum(...nums);
 console.log(total);
 
 // one use is u can pass individual array elements
@@ -94,30 +114,24 @@ const clonedObject = { ...originalObject };
 
 // other is u can create a shallow copy of arrays and objects
 
-const original = { x: 1, y: 2 };
-const clone = original; 
-clone.x = 'hi';  // both's x value will be 'hi'
+// more about it on value_types.js
 
-// if u do it like this they share the same memory and change clone will change original too. same with arrays
-
-const originalArray = [1,2,3,4,5];
+const originalArray = [1, 2, 3, 4, 5];
 const clonedArray = [...originalArray];
 
-const array1 = [1,2,3,4];
+const array1 = [1, 2, 3, 4];
 const array2 = array1;
 
 array2.push(5); // both arrays will have 5
-
-// and yea adding, removing or modifying elements doesn't violate const for array
 
 const arrays1 = [1, 2, 3];
 const arrays2 = [4, 5, 6];
 const combinedArray = [...array1, ...array2];
 
-// concatination of array 
+// concatination of array
 
 const object1 = { x: 1, y: 2 };
 const object2 = { z: 3 };
-const mergedObject = { ...object1, ...object2 };  
+const mergedObject = { ...object1, ...object2 };
 
 // object merging

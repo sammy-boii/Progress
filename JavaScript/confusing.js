@@ -29,7 +29,7 @@ function square(num, callback) {
   
   // Output: The result is: 27
   
-  //yesma rather than defining a function seperately and passing, it is defined during passing process which makes it possible for it to be nameless/ anonymous. 
+  //yesma rather than defining a function seperately and passing, it is defined during passing process which makes it possible for it to be nameless/ anonyomous. 
   
   
   // Example 3: Using callback and anonymous function together

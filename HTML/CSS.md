@@ -488,11 +488,10 @@ They also take minimum space possible but have access to width and height proper
 
 ```css
 div { 
-  display: hidden;
   display: none;
 }
 ```
-Both makes the element invisible but none completely takes it out of the document flow but hidden does not.
+It makes the element invisible and completely takes it out of the document flow.
 
 <br>
 
@@ -903,11 +902,25 @@ img
                 inset 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 ```
-1px = horizontal offset
-2px = vertical offset
-1px = blur radius
-rgba / hsl / hex / anything = color
+horizontal offset,
+vertical offset,
+blur radius,
+rgba / hsl / hex / anything = color,
 inset = shadow will be inside the box
+
+&nbsp;
+
+In CSS, some properties have special behaviour: 
+
+```css
+div{
+  transform: translate(10px, 10%);
+  bottom: 0;
+  position: absolute;
+}
+```
+
+Even if positioning comes after the bottom still gets correctly applied and the translate goes beyond bottom and overflows meaning it prolly gets executed later as well.
 
 ```css
 body {

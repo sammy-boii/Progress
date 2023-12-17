@@ -32,7 +32,7 @@ It acts as an interface between the web page content and the scripting or progra
   <track kind="subtitles" label="English" src="subtitles-en.vtt" srclang="en">
 </video>
 
-<!-- fallback content -->
+<!-- other sources and paragraphs are fallback content -->
 
 <!-- controls enables volume slider, minimize buttons, playback speed etc... -->
 
@@ -189,6 +189,7 @@ This does work but is vulnerable to Javascript Injections.
 ```js
 const element = document.createElement('strong')
 element.innerText = 'Hello World'
+element.innerText += '!!!'
 strong.append()
 ```
 appendChild() only appends elements but append can append strings as well as append multiple child at once.
@@ -206,7 +207,7 @@ Much safer!
 const container = document.querySelector('.meme-content');
 const newElement = create.Element('img');
 
-newElement.setAttribute ('src', 'http://i.redd.it/djn23ee61.jpg');
+newElement.setAttribute ('src', 'https://placehold.co/300x300');
 
 container.appendChild (newElement);
 ```
@@ -224,37 +225,27 @@ console.log(newElement.nodeType)
 
 ```js
 
+const posts = [
+    { title: '1', price: 1 },
+    { title: '2', price: 10 },
+    { title: '3', price: 100 },
+    { title: '4', price: 1000 }
+]
 
-    const posts = [
-        {
-        title: '1',
-        price: 1
-    },
-       {
-        title: '2',
-        price: 10
-    },
-       {
-        title: '3',
-        price: 100
-    },
-       {
-        title: '4',
-        price: 1000
-    }
-    ]
+function getPosts() {
+        let output = ''
 
-    function getPosts() {
-        setTimeout(() => {
-            let output = '';
-            posts.forEach((post) => {
-                output += `<li>${post.title}</li>`;
-            });
-            document.body.innerHTML = output;
-        }, 1000);
-    }
+        posts.forEach((post) => {
+            output += `<li>${post.price}</li>`;
+        })
 
-    getPosts();
+        document.body.appendChild(ul); 
+        ul.innerHTML = output; 
+}
+
+const ul = document.createElement('ul');
+getPosts();
+
 ```
 
 ```js

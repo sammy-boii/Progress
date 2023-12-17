@@ -9,7 +9,7 @@ const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
 
 console.log(canvas) // <canvas id = 'canvas'>
-console.log(ctx) // {}
+console.log(ctx) // {contextRenderingObject...}
 ```
 
 #### getContext() is a canvas method that fetches an object from the Canvas API through which we can draw stuff on the canvas.
@@ -94,5 +94,24 @@ function animate () {
     requestAnimationFrame(animate)
 }
 
-// requestAnimationFrame  calls whatever callback we pass inside it only once. So here its kinda like a recursion.
+animate()
+
+// requestAnimationFrame is typically used for animations. 
+
+// The function is initially called and then requestAnimationFrame() recursively calls it on every browser repaint.
+
+// The callback also recieves a parameter by the browser which represents the current time in which the function is executed (in milliseconds)
+
+function animate (timeStamp) {
+  const delta = timeStamp - lastTimeStamp
+  lastTimeStamp = timeStamp
+  console.log(delta)
+  requestAnimationFrame(animate)
+}
+
+let lastTimeStamp = performance.now() // or 0 ig..
+animate()
+
+// in a nutshell its calculating the intervals between each execution of the animate function.
+
 ```

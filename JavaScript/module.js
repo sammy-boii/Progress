@@ -1,5 +1,4 @@
 
-
 // Modules allows us to break apart the js code into various files 
 
 // say there is a file named 'user.js' and its' content are:

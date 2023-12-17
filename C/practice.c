@@ -1,4 +1,3 @@
-
 // 1. Average of an array
 
 #include <stdio.h>
@@ -165,7 +164,6 @@ void swap(int *a, int *b)
 
 // we pass the address and the pointer points to that address / goes to that address and directly changes it so no need to return it. we passed the address so we can use pointers to go to that location.
 
-
 // 6. Read and write in a CSV file
 
 #include <stdio.h>
@@ -185,11 +183,9 @@ int main()
     fprintf(csvFile, "John Doe,1234567890\n");
     fprintf(csvFile, "Jane Smith,9876543210\n");
 
-    fclose(csvFile); 
-
+    fclose(csvFile);
 
     // Read data from the Comma Seperated Values (CSV) file. (MS-Excel)
-
 
     csvFile = fopen("contacts.csv", "r"); // Open the file in read mode
 
@@ -203,7 +199,7 @@ int main()
 
     printf("Contacts in the CSV file:\n");
 
-    while (fscanf(csvFile, "%s %s \n", name, phoneNumber) != EOF) 
+    while (fscanf(csvFile, "%s %s \n", name, phoneNumber) != EOF)
     {
         printf("Name: %s, Phone Number: %s\n", name, phoneNumber);
     }

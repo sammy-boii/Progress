@@ -20,4 +20,4 @@ myDate.toISOString(); // ISO format ma display
 
 myDate.getMonth() // starts from 0-11
 
-// and more... kinda useless ig..
+// and more... kinda useful 
