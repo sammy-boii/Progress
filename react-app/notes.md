@@ -31,9 +31,15 @@ npm create vite@latest
 
 &nbsp; 
 
-#### <span style = 'color: yellow'> Webpack is a bundler that bundles various files into one single file. Transpiler is used to convert code of one programming language to another. Typescript is a transpiler and a super-set of JS. SCSS is both a traspiler and bundler of CSS.
+#### <span style = 'color: yellow'> Webpack is a bundler that bundles various files into one single file.
+
+#### Vite utilizes the modules and is a lot faster than the traditional bundler. 
+
+#### It has Hot Module Replacement (HMR) so we can see the changes in real time.
+
+#### Transpiler is used to convert code of one programming language to another. Typescript is a transpiler and a super-set of JS. SCSS is both a traspiler and bundler of CSS.
 &nbsp; 
-```javascript
+```javascript 
 
 let name = '<h1> Name </h1>'
 
