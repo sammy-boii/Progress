@@ -228,3 +228,37 @@ const [x, ...y] = numbers;
 
 console.log(x); // 1
 console.log(y); // [2, 3, 4, 5]
+
+// * Set is unique collections of data like strings and arrays.
+
+const set = new Set([1, 2, 3, 4, 4, 5, 5, 1]);
+
+// Set(5) [1,2,3,4,5]
+
+set.has(1); // true
+set.add("h");
+arr.delete(4);
+set.clear(); // deletes everything
+
+const arr = Array.from(set); // converting back to array
+
+// * Symbols are usually used as unique keys for objects
+
+const symKey = Symbol("uniqueKey");
+let myObject = {};
+myObject[symKey] = "value1";
+
+// * Map is basically an object with flexible keys
+
+const map = new Map();
+
+map.set("name", "John");
+map.set(12, "age");
+
+map.get(12); // 'age'    vice versa doesn't work
+map.has("name"); // true
+
+map.delete("name");
+map.clear();
+
+// it has -> instead of :
