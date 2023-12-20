@@ -38,6 +38,8 @@ npm create vite@latest
 #### It has Hot Module Replacement (HMR) so we can see the changes in real time.
 
 #### Transpiler is used to convert code of one programming language to another. Typescript is a transpiler and a super-set of JS. SCSS is both a traspiler and bundler of CSS.
+
+#### CRA, Vite are development tools. Without them you'd have to manually installed every dependency and building tool like babel, webpack, react, css loaders, etc...
 &nbsp; 
 ```javascript 
 
