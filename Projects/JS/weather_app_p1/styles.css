@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+
+/* general styling */ 
+
+*,*::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(ellipse at bottom,#383838,#000000);
+}
+
+:is(input, ::placeholder, .card:has(.card-left, .card-right)) {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+/* horrendous blob animation inc */
+
+@keyframes shapeShift {
+    0%, 100%{
+        border-radius: 25% 17% 83% / 30% 22% 78% 70% ;
+    }
+    10%{
+        border-radius: 29% 71% 68% 32% / 75% 62% 38% 25%;
+    }
+    20%{
+        border-radius: 29% 71% 32% 68% / 75% 83% 17% 25% ;
+    }
+    30%{
+        border-radius: 29% 71% 73% 27% / 75% 59% 41% 25% ;
+    }
+    40%{
+        border-radius: 29% 71% 73% 27% / 36% 59% 41% 64% ;
+    }
+    50%{
+        border-radius: 79% 21% 73% 27% / 36% 59% 41% 64% ;
+    }
+    60%{
+        border-radius:79% 21% 73% 27% / 36% 21% 79% 64%  ;
+    }
+    70%{
+        border-radius: 79% 21% 19% 81% / 36% 21% 79% 64% ;
+    }
+    80%{
+        border-radius: 79% 21% 19% 81% / 83% 21% 79% 17% ;
+    }
+    90%{
+        border-radius: 18% 82% 19% 81% / 83% 21% 79% 17% ;
+    }
+}
+
+.blob {
+    background: rgba(53, 50, 50, 0.1);
+    position: absolute;
+    z-index: -1;
+    width: clamp(45vw,55vw,65vw);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ;
+    inset: 10% 50% 5% 25%;
+    rotate: 40deg;
+    opacity: .2;
+    filter: blur(1px);
+    box-shadow: 0 0 30px 30px #464545;
+    animation: shapeShift 15s linear .1s infinite;
+}
+
+/* input bar and paper-plane */
+
+.plane-container {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.paper-plane {
+    position: absolute;
+    right: 7%;
+    top: 0%;
+    width: 50px;
+    height: 50px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+/* the dimensions are fixed cuz the svg path gets affect by it too for some reason 😢 */
+
+input{ 
+    color: rgba(0,0,0,0);
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    display: none;
+    width: 0;
+    padding: 0;
+    transition: box-shadow 1s;
+    &:focus {
+        outline: none;
+    }
+    ::placeholder{
+        color: #fff;
+    }
+}
+
+/* globe's styling */
+
+@keyframes spin {
+    from {
+      transform: rotate3d(.5,.5,.5, 360deg);
+    }
+    to{
+      transform: rotate3d(0deg);
+    }
+  }
+
+.globe {
+    position: absolute;
+    margin-left: 10px;
+    right: 20%;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 2;
+    transition: all 1s;
+    &:hover {
+        scale: 2.5;
+        filter: invert(90%) saturate(200%);
+    }
+}
+  
+.orbits {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+  
+.orbits:nth-child(1){
+    padding: 80px;
+    border: 1px solid #91daffa5;
+    animation: spin 3s linear .2s infinite;
+}
+  
+.orbits:nth-child(2){
+    padding: 60px;
+    border: 1px solid #91ffbfa5;
+    animation: spin 2s linear 0s infinite;
+}
+  
+.orbits:nth-child(3) {
+    padding: 40px;
+    border: 1px solid #ffca91a5;
+    animation: spin 1s linear 0s infinite;
+}
+  
+.orbits:nth-child(4) {
+    padding: 20px;
+    border: 2px solid #ffffff;
+    animation: spin 10s linear 0s infinite;
+}
+  
+.orbits:nth-child(5){
+    padding: 20px;
+    border: 2px solid white;
+}
+
+/* card styling */
+
+.card {
+    position: absolute;
+    display: flex;
+    width: 40vw;
+    height: 60vh;
+    top: 23%;
+    opacity: 0.8;
+    left: 10%;
+    z-index: 5;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.card-left {
+    overflow-wrap: break-word;
+    background:linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
+    border-radius: 12px;
+    width: 45%;
+    padding: 25px 25px 35px 25px;
+}
+
+.card-right {
+    overflow-wrap: break-word;
+    background:linear-gradient(135deg, #222831 10%, #000000 100%);
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    width: 55%;
+    padding: 25px 25px 35px 25px;
+}
+
+:is(.card-left > .header,.card-right > .header) {
+    height: 45%;
+    width: 100%;
+}
+
+:is(.card-left > .footer, .card-right > .footer) {
+    height: 55%;
+    width: 100%;
+}
+
+.card-left .week-day {
+    font-weight: 800;
+    margin-bottom: 5px;
+    font-size: 1.4em;
+}
+
+.card-left .date-group > * {
+    padding: 3px;
+    font-weight: normal;
+}
+
+.card-left .full-location {
+    margin-top: 15px;
+    font-weight: normal;
+}
+
+.card-left img {
+    display: block;
+    scale: 1.5;
+    transition: all 1s;
+}
+
+.card-left .temperature {
+    margin-top: 15px;
+    font-size: 3em;
+    font-weight:600;
+}
+
+.card-right > .header > div{
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-right > .header span[class] {
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.card-right .footer {
+    height: 100%;
+    background: url('https://loading.io/asset/711480') center/cover no-repeat;
+}
+
+.card-right .grid > * {
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    transition: all 200ms;
+    &:hover {
+          transform: scale(1.1) perspective(1500px) rotateY(10deg);
+        background: #fff;
+        color: #000;
+        cursor: pointer;
+        scale: 1.1;
+    }
+}
+
+
+
+/* globe's media queries */
+
+@media screen and (625px <= width <=798px) {
+
+    .globe {
+    scale: 1.4;
+    &:hover {
+        scale: 1.6;
+        }
+    }
+}
+
+@media screen and (463px <= width <= 625px) {
+    .globe {
+    scale: .9;
+    &:hover {
+        scale: 1.1;
+        }
+    }
+}
+
+@media screen and (max-width: 463px) {
+    .globe {
+    scale: .7;
+    &:hover {
+        scale: .9;
+        }
+    }
+}
