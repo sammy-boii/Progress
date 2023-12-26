@@ -1,3 +1,9 @@
+// initial load
+
+addEventListener("DOMContentLoaded", () => {
+  gsap.to("body", { y: 0 })
+})
+
 // global variables
 
 const API_KEY = "e64642dcaf18a4c680f82227fc60e855"
@@ -38,12 +44,6 @@ const precipitation = cardRight.querySelector(".precipitation")
 const humidity = cardRight.querySelector(".humidity")
 const wind = cardRight.querySelector(".wind")
 
-const grid = cardRight.querySelector(".grid")
-const item1 = cardRight.querySelector(".item-1")
-const item2 = cardRight.querySelector(".item-2")
-const item3 = cardRight.querySelector(".item-3")
-const item4 = cardRight.querySelector(".item-4")
-
 // fetching data
 
 async function fetchData() {
@@ -52,7 +52,7 @@ async function fetchData() {
       `https://api.openweathermap.org/data/2.5/weather?q=${CITY_NAME}&appid=${API_KEY}&units=metric`
     )
     const data = await response.json()
-    console.log(data)
+    document.title = `☁ ${CITY_NAME}'s Weather ☁`
     modifyCard(data)
   } catch (error) {
     toggleAnimation()
@@ -64,7 +64,6 @@ async function fetchData() {
   }
 }
 
-document.title = `☁ ${CITY_NAME}'s Weather ☁`
 fetchData()
 
 // utility functions
@@ -116,7 +115,7 @@ function handleInput(e) {
         inputBar.style.outline = "none"
       }, 1000)
     } else {
-      CITY_NAME = e.target.value
+      CITY_NAME = e.target.value.toUpperCase()
       fetchData()
       toggleAnimation()
     }
@@ -140,63 +139,85 @@ const tl = gsap.timeline({ paused: true })
 tl.to(paperPlane, {
   duration: 0.9,
   opacity: 0,
-  rotate: "185deg"
+  rotate: "185deg",
+  onComplete: () => {
+    paperPlane.src = "./paper-plane.png"
+  }
 })
   .to(paperPlane, {
-    duration: 3.5,
+    duration: 2.5,
     motionPath: {
       path: planePath,
       align: planePath,
       autoRotate: true
     }
   })
-  .to(paperPlane, { opacity: 1 }, "-=3.4")
-  .to(globe, { right: "49%", duration: 1.7, scale: 0.7, opacity: 0.5 }, "-=3")
+  .to(paperPlane, { opacity: 1 }, "+.9")
+  .to(globe, { right: "49%", scale: 0.7, opacity: 0.5 }, "1.8")
   .to(
     paperPlane,
     {
       opacity: "0",
       width: "0",
       height: "0",
-      duration: 0.6
+      duration: 1
     },
     "=-.8"
   )
   .to(
-    header,
+    leftHeader,
     {
       opacity: 0,
       duration: 1
     },
-    "+1.8"
+    "+1"
   )
   .to(
-    article,
+    leftFooter,
     {
       opacity: 0,
       duration: 1
     },
-    "+2.2"
+    "+1.4"
   )
   .to(
-    h3,
+    rightHeader,
     {
       opacity: 0,
       duration: 1
     },
-    "+2.6"
+    "+1.5"
   )
-  .to(weatherImg, { opacity: 0, duration: 1 }, "+3.0")
   .to(
-    card,
+    rightFooter,
     {
-      x: 420,
       opacity: 0,
-      duration: 2.3,
+      duration: 1
+    },
+    "+1.7"
+  )
+  .to(weatherImg, { opacity: 0, duration: 1 }, "+1.5")
+  .to(
+    cardRight,
+    {
+      y: 400,
+      opacity: 0,
+      duration: 1.6,
       opacity: 0
     },
-    "+2.8"
+    "+2.0"
   )
+  .to(
+    cardLeft,
+    {
+      x: 440,
+      opacity: 0,
+      duration: 1.8,
+      opacity: 0
+    },
+    "+2.3"
+  )
+  .to(card, { opacity: 0 }, "+2.5")
   .to(
     inputBar,
     {
@@ -214,5 +235,5 @@ tl.to(paperPlane, {
         inputBar.addEventListener("keypress", handleInput)
       }
     },
-    "-=.6"
+    "+2.5"
   )

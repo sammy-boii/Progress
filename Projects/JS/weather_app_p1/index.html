@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.9" />
     <title>🌡 Weather App ☁</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
@@ -33,7 +33,8 @@
       <div class="card-right">
         <div class="header">
           <div>
-            <span>PRECIPITATION</span> <span class="precipitation"></span>
+            <span style="padding-right: 10px">PRECIPITATION</span>
+            <span class="precipitation"></span>
           </div>
           <div>
             <span>HUMIDITY</span>
@@ -46,6 +47,13 @@
         </div>
         <div class="footer"></div>
       </div>
+    </div>
+    <div class="globe">
+      <div class="orbits"></div>
+      <div class="orbits"></div>
+      <div class="orbits"></div>
+      <div class="orbits"></div>
+      <div class="orbits"></div>
     </div>
     <div class="blob"></div>
     <input
@@ -60,7 +68,7 @@
       <img
         style="filter: grayscale(100%)"
         class="paper-plane"
-        src="paper-plane.png"
+        src="search.png"
         alt="plane"
       />
       <svg id="plane-path-svg" width="70%" height="70%" viewBox="0 0 600 600">
@@ -71,14 +79,6 @@
           d="M1451.78,74.90199 C642.924,260.22499 257.614,155.99299 294,350.79199 317.531,476.77199 345.828,475.43499 461.286,509.98599 506.678,523.56899 675.636,543.20899 671.479,458.08599 667.236,371.20699 427.24,-88.48401 473.052,542.82699 "
         />
       </svg>
-    </div>
-
-    <div class="globe">
-      <div class="orbits"></div>
-      <div class="orbits"></div>
-      <div class="orbits"></div>
-      <div class="orbits"></div>
-      <div class="orbits"></div>
     </div>
   </body>
 </html>

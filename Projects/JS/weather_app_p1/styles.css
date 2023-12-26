@@ -8,10 +8,12 @@
     box-sizing: border-box;
 }
 
+
 body {
-    position: relative;
     min-height: 100vh;
     overflow: hidden;
+    transform: translateY(-100%);
+    transition: transform 1s;
     background: radial-gradient(ellipse at bottom,#383838,#000000);
 }
 
@@ -80,6 +82,7 @@ body {
 .paper-plane {
     position: absolute;
     right: 7%;
+    z-index: 50;
     top: 0%;
     width: 50px;
     height: 50px;
@@ -178,31 +181,37 @@ input{
     display: flex;
     width: 40vw;
     height: 60vh;
+    border-radius: 12px;
+    background: url(splat.png) center/cover;
+    backdrop-filter: blur(5px);
     top: 23%;
     opacity: 0.8;
     left: 10%;
     z-index: 5;
+    border: 2px solid rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px 10px rgba(0,0,0,0.5);
     color: #fff;
     font-family: 'Poppins', sans-serif;
 }
-
-
 .card-left {
     overflow-wrap: break-word;
-    background:linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
     border-radius: 12px;
     width: 45%;
     padding: 25px 25px 35px 25px;
+    border: 1
+}
+
+.card-left img {
+    filter: contrast(0.9);
 }
 
 .card-right {
     overflow-wrap: break-word;
-    background:linear-gradient(135deg, #222831 10%, #000000 100%);
-    backdrop-filter: blur(4px);
     border-radius: 12px;
     width: 55%;
     padding: 25px 25px 35px 25px;
 }
+
 
 :is(.card-left > .header,.card-right > .header) {
     height: 45%;
@@ -255,30 +264,34 @@ input{
 
 .card-right .footer {
     height: 100%;
-    background: url('https://loading.io/asset/711480') center/cover no-repeat;
 }
 
-.card-right .grid > * {
-    border-radius: 15px;
-    display: grid;
-    place-items: center;
-    width: 100%;
-    height: 100%;
-    transition: all 200ms;
-    &:hover {
-          transform: scale(1.1) perspective(1500px) rotateY(10deg);
-        background: #fff;
-        color: #000;
-        cursor: pointer;
-        scale: 1.1;
+/* media queries */
+
+@media screen and (500px <= max-width <= 1100px) {
+    .globe {
+        inset: 80% 0 30% 0;
+    }
+    .card {
+        top: 5%;
+        height: 50%;
+        width: 80%;
     }
 }
 
 
+@media screen and (max-width: 500px) {
+    .globe {
+        inset: 80% 0 30% 0;
+    }
+    .card {
+        top: 5%;
+        height: 50%;
+        width: 80%;
+    }
+}
 
-/* globe's media queries */
-
-@media screen and (625px <= width <=798px) {
+/* @media screen and (660px <= width <=900px) {
 
     .globe {
     scale: 1.4;
@@ -286,22 +299,65 @@ input{
         scale: 1.6;
         }
     }
-}
 
-@media screen and (463px <= width <= 625px) {
-    .globe {
-    scale: .9;
-    &:hover {
-        scale: 1.1;
-        }
+    .card {
+        width: 370px;
+        height: 330px;
     }
 }
 
-@media screen and (max-width: 463px) {
+@media screen and (530px <= width <= 660px) {
     .globe {
-    scale: .7;
+        width: 50%;
+        left: 20%;
+        bottom: -10%;
+        scale: 1.1;
+        &:hover {
+            scale: 1.2;
+        }
+
+    }
+    .card {
+        font-size: .8em;
+        top: 10%;
+        width: 75vw;
+        height: 55vh;
+    }
+}
+
+@media screen and (400px <= width <= 530px) {
+    .globe {
+        width: 50%;
+        left: 20%;
+        bottom: -15%;
+        scale: .9;
     &:hover {
         scale: .9;
         }
     }
+    .card {
+        font-size: .9em;
+        left: 15%;
+        width: 70vw;
+        height: 55vh;
+    }
 }
+
+@media screen and (max-width: 400px) {
+    .globe {
+        width: 50%;
+        left: 20%;
+        bottom: -15%;
+        scale: .9;
+    &:hover {
+        scale: .9;
+        }
+    }
+    .card {
+        font-size: .9em;
+        top: 10%;
+        left: 15%;
+        width: 85vw;
+        height: 75vh;
+    }
+} */
