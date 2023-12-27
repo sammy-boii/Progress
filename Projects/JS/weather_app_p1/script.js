@@ -108,7 +108,7 @@ function modifyCard(data) {
 
 function handleInput(e) {
   if (e.key === "Enter") {
-    if (e.target.value === false) {
+    if (!e.target.value) {
       inputBar.style.outline = "1px solid red"
       toggleAnimation()
       setTimeout(() => {
@@ -237,3 +237,11 @@ tl.to(paperPlane, {
     },
     "+2.5"
   )
+
+card.addEventListener("mouseenter", () => {
+  card.style.filter = "contrast(0.9)"
+})
+
+card.addEventListener("mouseleave", () => {
+  card.style.filter = "contrast(1)"
+})

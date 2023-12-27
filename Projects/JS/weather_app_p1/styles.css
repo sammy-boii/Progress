@@ -127,12 +127,12 @@ input{
     right: 20%;
     top: 50%;
     display: flex;
+    z-index: 4;
     justify-content: center;
     align-items: center;
     scale: 2;
-    transition: all 1s;
+    transition: filter 400ms;
     &:hover {
-        scale: 2.5;
         filter: invert(90%) saturate(200%);
     }
 }
@@ -190,9 +190,12 @@ input{
     z-index: 5;
     border: 2px solid rgba(0,0,0,0.5);
     box-shadow: 0 0 10px 10px rgba(0,0,0,0.5);
+    transition: transform 100ms;
     color: #fff;
+    transition: filter 200ms;
     font-family: 'Poppins', sans-serif;
 }
+
 .card-left {
     overflow-wrap: break-word;
     border-radius: 12px;
@@ -271,10 +274,11 @@ input{
 @media screen and (500px <= max-width <= 1100px) {
     .globe {
         inset: 80% 0 30% 0;
+        scale: .5;
     }
     .card {
         top: 5%;
-        height: 50%;
+        height: 60%;
         width: 80%;
     }
 }
@@ -286,78 +290,7 @@ input{
     }
     .card {
         top: 5%;
-        height: 50%;
+        height: 60%;
         width: 80%;
     }
 }
-
-/* @media screen and (660px <= width <=900px) {
-
-    .globe {
-    scale: 1.4;
-    &:hover {
-        scale: 1.6;
-        }
-    }
-
-    .card {
-        width: 370px;
-        height: 330px;
-    }
-}
-
-@media screen and (530px <= width <= 660px) {
-    .globe {
-        width: 50%;
-        left: 20%;
-        bottom: -10%;
-        scale: 1.1;
-        &:hover {
-            scale: 1.2;
-        }
-
-    }
-    .card {
-        font-size: .8em;
-        top: 10%;
-        width: 75vw;
-        height: 55vh;
-    }
-}
-
-@media screen and (400px <= width <= 530px) {
-    .globe {
-        width: 50%;
-        left: 20%;
-        bottom: -15%;
-        scale: .9;
-    &:hover {
-        scale: .9;
-        }
-    }
-    .card {
-        font-size: .9em;
-        left: 15%;
-        width: 70vw;
-        height: 55vh;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .globe {
-        width: 50%;
-        left: 20%;
-        bottom: -15%;
-        scale: .9;
-    &:hover {
-        scale: .9;
-        }
-    }
-    .card {
-        font-size: .9em;
-        top: 10%;
-        left: 15%;
-        width: 85vw;
-        height: 75vh;
-    }
-} */
