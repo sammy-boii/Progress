@@ -138,10 +138,7 @@ const tl = gsap.timeline({ paused: true })
 tl.to(paperPlane, {
   duration: 0.9,
   opacity: 0,
-  rotate: "185deg",
-  onComplete: () => {
-    paperPlane.src = "https://gdurl.com/5U9V"
-  }
+  rotate: "185deg"
 })
   .to(paperPlane, {
     duration: 2.5,
@@ -151,7 +148,19 @@ tl.to(paperPlane, {
       autoRotate: true
     }
   })
-  .to(paperPlane, { opacity: 1 }, "+.9")
+  .to(
+    paperPlane,
+    {
+      opacity: 1,
+      onUpdate: () => {
+        paperPlane.src = "https://gdurl.com/5U9V"
+      },
+      onReverseComplete: () => {
+        paperPlane.src = "https://gdurl.com/I0q8"
+      }
+    },
+    "+.9"
+  )
   .to(globe, { right: "49%", scale: 0.7, opacity: 0.5 }, "1.8")
   .to(
     paperPlane,
