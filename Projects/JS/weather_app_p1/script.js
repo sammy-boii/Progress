@@ -121,19 +121,31 @@ function handleInput(e) {
   }
 }
 
+let reversed = false
+
 function toggleAnimation() {
-  if (tl.reversed()) {
+  if (!reversed) {
     tl.play()
+    reversed = !reversed
   } else {
     tl.reverse()
+    reversed = !reversed
   }
 }
 
-paperPlane.addEventListener("click", toggleAnimation)
+// tl.reversed() exists for checking but on the first animation but it doesn't work properly
 
 // gsap animation timeline
 
-const tl = gsap.timeline({ paused: true })
+const tl = gsap.timeline({
+  paused: true,
+  onStart: () => {
+    paperPlane.src = "https://gdurl.com/5U9V"
+  },
+  onReverseComplete: () => {
+    paperPlane.src = "https://gdurl.com/I0q8"
+  }
+})
 
 tl.to(paperPlane, {
   duration: 0.9,
@@ -151,13 +163,7 @@ tl.to(paperPlane, {
   .to(
     paperPlane,
     {
-      opacity: 1,
-      onUpdate: () => {
-        paperPlane.src = "https://gdurl.com/5U9V"
-      },
-      onReverseComplete: () => {
-        paperPlane.src = "https://gdurl.com/I0q8"
-      }
+      opacity: 1
     },
     "+.9"
   )
@@ -245,6 +251,10 @@ tl.to(paperPlane, {
     },
     "+2.5"
   )
+
+// event listeners
+
+paperPlane.addEventListener("click", toggleAnimation)
 
 card.addEventListener("mouseenter", () => {
   card.style.filter = "contrast(0.9)"

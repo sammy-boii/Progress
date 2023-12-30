@@ -266,8 +266,10 @@ input{
 }
 
 .card-right .footer {
-    height: 100%;
+    height: 55%;
 }
+
+
 
 /* media queries */
 
