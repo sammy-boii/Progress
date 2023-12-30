@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.9" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🌡 Weather App ☁</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
@@ -15,6 +15,8 @@
     <script defer src="script.js"></script>
   </head>
   <body>
+    <!-- main card -->
+
     <div class="card">
       <div class="card-left">
         <div class="header">
@@ -48,6 +50,9 @@
         <div class="footer"></div>
       </div>
     </div>
+
+    <!-- the globe -->
+
     <div class="globe">
       <div class="orbits"></div>
       <div class="orbits"></div>
@@ -55,7 +60,11 @@
       <div class="orbits"></div>
       <div class="orbits"></div>
     </div>
+
+    <!-- background blob -->
+
     <div class="blob"></div>
+
     <input
       type="text"
       autofocus
@@ -64,11 +73,14 @@
       class="search-input"
       placeholder="Search..."
     />
+
+    <!-- search bar / plane -->
+
     <div class="plane-container">
       <img
         style="filter: grayscale(100%)"
         class="paper-plane"
-        src="search.png"
+        src="https://gdurl.com/I0q8"
         alt="plane"
       />
       <svg id="plane-path-svg" width="70%" height="70%" viewBox="0 0 600 600">

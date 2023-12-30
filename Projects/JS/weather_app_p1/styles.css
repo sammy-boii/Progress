@@ -22,7 +22,7 @@ body {
     font-weight: bold;
 }
 
-/* horrendous blob animation inc */
+/* horrendous blob animation */
 
 @keyframes shapeShift {
     0%, 100%{
@@ -71,7 +71,7 @@ body {
     animation: shapeShift 15s linear .1s infinite;
 }
 
-/* input bar and paper-plane */
+/* input bar and paper-plane / search-icon */
 
 .plane-container {
     height: 100vh;
@@ -91,7 +91,7 @@ body {
     }
 }
 
-/* the dimensions are fixed cuz the svg path gets affect by it too for some reason 😢 */
+/* the dimensions are fixed cuz the svg path gets affect by it too for some reason */
 
 input{ 
     color: rgba(0,0,0,0);
@@ -182,7 +182,7 @@ input{
     width: 40vw;
     height: 60vh;
     border-radius: 12px;
-    background: url(splat.png) center/cover;
+    background: url('https://gdurl.com/s0T5') center/cover;
     backdrop-filter: blur(5px);
     top: 23%;
     opacity: 0.8;
@@ -192,7 +192,7 @@ input{
     box-shadow: 0 0 10px 10px rgba(0,0,0,0.5);
     transition: transform 100ms;
     color: #fff;
-    transition: filter 200ms;
+    transition: filter 100ms;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -216,12 +216,12 @@ input{
 }
 
 
-:is(.card-left > .header,.card-right > .header) {
+.card-left > .header,.card-right > .header {
     height: 45%;
     width: 100%;
 }
 
-:is(.card-left > .footer, .card-right > .footer) {
+.card-left > .footer, .card-right > .footer {
     height: 55%;
     width: 100%;
 }
@@ -271,26 +271,24 @@ input{
 
 /* media queries */
 
-@media screen and (500px <= max-width <= 1100px) {
+@media screen and (max-width: 1100px) {
     .globe {
-        inset: 80% 0 30% 0;
-        scale: .5;
+      right: 22%;
+      scale: 1.5;
     }
     .card {
-        top: 5%;
-        height: 60%;
-        width: 80%;
+      width: 50%;
+      left: 5%;
     }
-}
-
-
-@media screen and (max-width: 500px) {
+  }
+  
+  @media screen and (max-width: 650px) {
     .globe {
-        inset: 80% 0 30% 0;
-    }
-    .card {
-        top: 5%;
-        height: 60%;
+        right: 0;
+        scale: 1;
+      }
+      .card {
         width: 80%;
+        left: 5%;
+      }
     }
-}

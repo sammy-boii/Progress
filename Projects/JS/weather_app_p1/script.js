@@ -110,7 +110,6 @@ function handleInput(e) {
   if (e.key === "Enter") {
     if (!e.target.value) {
       inputBar.style.outline = "1px solid red"
-      toggleAnimation()
       setTimeout(() => {
         inputBar.style.outline = "none"
       }, 1000)
@@ -141,7 +140,7 @@ tl.to(paperPlane, {
   opacity: 0,
   rotate: "185deg",
   onComplete: () => {
-    paperPlane.src = "./paper-plane.png"
+    paperPlane.src = "https://gdurl.com/5U9V"
   }
 })
   .to(paperPlane, {
