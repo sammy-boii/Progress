@@ -6,8 +6,8 @@ addEventListener("DOMContentLoaded", () => {
 
 // global variables
 
-const API_KEY = "e64642dcaf18a4c680f82227fc60e855"
-let CITY_NAME = "Tiruppur"
+const apiKey = "e64642dcaf18a4c680f82227fc60e855"
+let cityName = "Tiruppur"
 
 // DOM elements
 
@@ -49,10 +49,10 @@ const wind = cardRight.querySelector(".wind")
 async function fetchData() {
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${CITY_NAME}&appid=${API_KEY}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`
     )
     const data = await response.json()
-    document.title = `☁ ${CITY_NAME}'s Weather ☁`
+    document.title = `☁ ${cityName}'s Weather ☁`
     modifyCard(data)
   } catch (error) {
     toggleAnimation()
@@ -84,7 +84,7 @@ function modifyCard(data) {
   const _temperature = `${Math.round(data.main.temp)}°C`
   const _wind = `${Math.round(data.wind.speed)} km/h`
   const _humidity = `${Math.round(data.main.humidity)}%`
-  const _fullLocation = `➤ ${CITY_NAME}, ${data.sys.country.toUpperCase()}`
+  const _fullLocation = `➤ ${cityName}, ${data.sys.country.toUpperCase()}`
   const weatherIcon = data.weather[0].icon
   const _precipitation = `${
     (data.rain?.["1hr"] || 0) + (data.rain?.["1hr"] || 0)
@@ -114,7 +114,7 @@ function handleInput(e) {
         inputBar.style.outline = "none"
       }, 1000)
     } else {
-      CITY_NAME = e.target.value.toUpperCase()
+      cityName = e.target.value.toUpperCase()
       fetchData()
       toggleAnimation()
     }
@@ -133,17 +133,17 @@ function toggleAnimation() {
   }
 }
 
-// tl.reversed() exists for checking but on the first animation but it doesn't work properly
+// tl.reversed() exists for checking, but on the first iteration, it's value will be false; therefore, it's necessary to click twice.
 
 // gsap animation timeline
 
 const tl = gsap.timeline({
   paused: true,
   onStart: () => {
-    paperPlane.src = "https://gdurl.com/5U9V"
+    paperPlane.src = "https://images2.imgbox.com/e5/47/Cz7YIBQn_o.png"
   },
   onReverseComplete: () => {
-    paperPlane.src = "https://gdurl.com/I0q8"
+    paperPlane.src = "https://images2.imgbox.com/10/18/m6UNxUF5_o.png"
   }
 })
 
