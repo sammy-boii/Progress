@@ -1,3 +1,5 @@
+/* Samrajya Neupane 2408842 */
+
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
 
 /* general styling */ 
@@ -269,7 +271,17 @@ input{
     height: 55%;
 }
 
-
+footer {
+    position: absolute;
+    bottom: 0;
+    z-index: 101;
+    background-color: rgba(0,0,0,0);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    width: 100%;
+    text-align: center;
+}
 
 /* media queries */
 
