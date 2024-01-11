@@ -284,8 +284,8 @@ console.log(num2) // Number {10, text: 'hi'}
 
 console.log(num1 + num2) // 20
 
-// the reason num1.text doesn't thrown an error because whenever we use methods or properties on primitve values, it is temporarily wrapped with the respective wrapper function Number(), Boolean(), String() etc...
+// the reason num1.text doesn't thrown an error because whenever we use methods or properties on primitve values, it is temporarily wrapped with the respective wrapper function Number(), Boolean(), String() etc... and starts behaving as an object.
 
-// and when its converted back to the primitive value after the operation, the applied property doesn't persist.
+// after the completion of the operation, its converted back to the primitive value and the applied property doesn't persist.
 
 // that's why the type shows as number or string or boolean and not object.
