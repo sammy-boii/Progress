@@ -21,9 +21,14 @@ x
 
  ## Linked List
 
+
  It is a data structure that consits of elements (nodes) which point to the next element in the sequence. The last node usually points to null. 
 
+<img src = 'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230726162542/Linked-List-Data-Structure.png' width = 600 height = 300>
+
  It is usually uni-directional but doubly linked list is bi-directional.
+
+ <img src = 'https://www.boardinfinity.com/blog/content/images/2022/11/Untitled-design--16-.jpg' width = 600 height = 300>
 
  It's called a 'list' but technically its a bunch of objects nested inside one another pointing to the subsequent object. 
 
@@ -437,10 +442,74 @@ T = O(n)<br>
 
 ```js
 function nested_array(arr) {
-  for (const rows in arr) {
-    for (const cols in rows) {
-      console.log(arr[cols])
+  for (const rows in arr) { -> n
+    for (const cols in rows) { -> n
+      console.log(arr[cols]) -> O(n)
     }
   }
 }
 ```
+
+T = n² * O(1) <br>
+T = n² * c <br>
+T = O(n²) <br>
+
+If there was another nested loop then, 
+
+T = n² * O(1) +  n² * O(1)  
+T = n² * c₁ +  n² * c₂  
+T = n² (c₁ + c₂)  
+T = O(n²)  
+
+same for any number of loops  
+
+> A good example that shows why having same time complexity doesn't necessarily make the execution time similar. 
+
+&nbsp;
+
+## Tree
+
+A tree is a hierarchical data structure that consists of nodes connected by edges. 
+
+
+<img src = 'https://cdn.programiz.com/sites/tutorial2program/files/tree_0.png' width = 250 height = 300>
+
+The topmost node without any parent is the root.  
+
+The node without any children is called a leaf node. 
+
+The node with descendants are called internal node.  
+
+Level is the distance of the node from the root. Root is at level 0.  
+
+<img src = 'https://media.geeksforgeeks.org/wp-content/uploads/20230626160718/Tree-Data-Structure--nEW.png' width = 790 height = 420>
+
+&nbsp;
+
+Criterias of a Tree: 
+
+- There should no loops or cycles. 
+- There can be only one root.  
+- Each children must have only one parent. 
+- Each node must be connected and we should be able to reach any node from the root. 
+- It must be uni-directional else its a graph. 
+
+> Linked List is also technically a tree. 
+
+&nbsp;
+
+### Binary Tree
+
+A binary tree is a tree data structure in which each node can have zero, one, or at most two children which are referred to as the left child and the right child.
+
+<img src = 'https://cdn.programiz.com/sites/tutorial2program/files/perfect-binary-tree_0.png' width = 320 height = 250>
+
+&nbsp;
+
+### Binary Search Tree (BST)
+
+A binary search tree is a specific type of binary tree where the value of each node in the tree is greater than or equal to all the values in its left subtree and less than or equal to all the values in its right subtree.
+
+So the parent must be the middle value between its descendants where it should be greater than the left descendant and less than the right descendant. 
+
+<img src = 'https://courses.engr.illinois.edu/cs225/sp2019/assets/notes/bst/bsttreetraversal.png' width = 450 height = 320>
