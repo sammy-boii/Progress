@@ -54,6 +54,7 @@ async function fetchData() {
       `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`
     )
     const data = await response.json()
+    console.log(data)
     document.title = `☁ ${cityName}'s Weather ☁`
     modifyCard(data)
   } catch (error) {
@@ -89,12 +90,12 @@ function modifyCard(data) {
   const _fullLocation = `➤ ${cityName}, ${data.sys.country.toUpperCase()}`
   const weatherIcon = data.weather[0].icon
   const _precipitation = `${
-    (data.rain?.["1hr"] || 0) + (data.rain?.["1hr"] || 0)
+    (data.rain?.["1hr"] || 0) + (data.snow?.["1hr"] || 0)
   }%`
 
   // optional chaining operator is used cuz the API doesn't provide 'rain' or 'snow' property if there is no precipitation in the past hour
 
-  // also properties cannot start with a number so it's kept inside double quotes
+  // if data.rain? evaluates to undefined or null then the whole expression immediately evaluates to undefined
 
   day.innerText = _day
   temperature.innerText = _temperature

@@ -19,12 +19,12 @@ body {
     background: radial-gradient(ellipse at bottom,#383838,#000000);
 }
 
-:is(input, ::placeholder, .card:has(.card-left, .card-right)) {
+:is(input, ::placeholder, .card) {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
 }
 
-/* horrendous blob animation */
+/* blob animation */
 
 @keyframes shapeShift {
     0%, 100%{
@@ -194,7 +194,6 @@ input{
     box-shadow: 0 0 10px 10px rgba(0,0,0,0.5);
     transition: transform 100ms;
     color: #fff;
-    transition: filter 100ms;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -218,7 +217,7 @@ input{
 }
 
 
-.card-left > .header,.card-right > .header {
+.card-left > .header, .card-right > .header {
     height: 45%;
     width: 100%;
 }

@@ -2,33 +2,33 @@
 
 // * Literal is the simple representation of those fixed values like below:
 
-var num = 42; // Numeric / Integer Literal
+var num = 42 // Numeric / Integer Literal
 
-var str = "Hi"; // String Literal
+var str = "Hi" // String Literal
 
-var obj = { a: 1 }; // Object Literal
+var obj = { a: 1 } // Object Literal
 
-var arr = [1, 2]; // Array Literal
+var arr = [1, 2] // Array Literal
 
-var bool = true; // Boolean Literal
+var bool = true // Boolean Literal
 
-let a = -5;
-typeof a;
+let a = -5
+typeof a
 
 // number
 
-let b = "hi";
-typeof b;
+let b = "hi"
+typeof b
 
 // string
 
-let c = false;
-typeof c;
+let c = false
+typeof c
 
 // boolean
 
-let d = 12.21;
-typeof d;
+let d = 12.21
+typeof d
 
 // number
 
@@ -36,8 +36,8 @@ typeof d;
 
 // default value is undefined
 
-console.log(message); // Output: undefined
-var message = "Hello, hoisting!";
+console.log(message) // Output: undefined
+var message = "Hello, hoisting!"
 
 /*
 
@@ -65,11 +65,11 @@ TODO: Note: if u do Number('hello') then u will get NaN instead of TypeError
 */
 
 try {
-  var num = 20;
-  num.toUpperCase();
+  var num = 20
+  num.toUpperCase()
 } catch (error) {
-  console.log(error instanceof TypeError); // true if the error is an instance of TypeError class
-  console.log(error.message); //  num.toUpperCase() is not a function
+  console.log(error instanceof TypeError) // true if the error is an instance of TypeError class
+  console.log(error.message) //  num.toUpperCase() is not a function
 }
 
 /*
@@ -85,7 +85,7 @@ TODO:    Compiler compiles the whole code at once creates a seperate executable 
 ! Tokens are like the smallest unit that make up the syntax of a programming language.
 
 */
-total = 10 + 5;
+total = 10 + 5
 /*
 
 ! It can be broken down into the following tokens:
@@ -125,43 +125,42 @@ total = 10 + 5;
 */
 
 function myAge(age) {
-  age += 1;
+  age += 1
 }
-const age = 10;
-myAge(age);
+const age = 10
+myAge(age)
 
 // ? age will still be 10 but
 
 function MyAge(me) {
-  me.age += 1;
+  me.age += 1
 }
-const me = { age: 10 };
-MyAge(me);
+const me = { age: 10 }
+MyAge(me)
 
 //? age will be 11
 
-string = "Hi";
-obj = { name: "Harry", age: 12 };
+string = "Hi"
+obj = { name: "Harry", age: 12 }
 
-let ask = confirm("Are you sure");
-console.log(ask);
+let ask = confirm("Are you sure")
+console.log(ask)
 
 // displays msg like alert in yes / no format and returns true / false
 
 // ? Strict mode removes unwanted or unusual behaviours of the language. Sometimes it's better than normal mode.
-
-("use strict");
+;("use strict")
 
 // It's already opt-in
 
 const person = {
   name: "Rahul",
-  class: 12,
-};
-let idk = `thank you`;
+  class: 12
+}
+let idk = `thank you`
 console.log(
   `My name is ${person.name} and I am in class ${person.class} ${idk}`
-);
+)
 
 // This format is called Templete Literals and they use back ticks
 
@@ -171,94 +170,122 @@ var multilineString = `
 This is a
 multiline
 string.
-`;
+`
 
-var multilineString = "This is a\n" + "multiline\n" + "string.";
+var multilineString = "This is a\n" + "multiline\n" + "string."
 
 try {
-  var num = 20;
-  num.toUpperCase();
+  var num = 20
+  num.toUpperCase()
 } catch (error) {
-  console.log(error instanceof TypeError);
-  console.log(error.message);
+  console.log(error instanceof TypeError)
+  console.log(error.message)
 }
 
 // ? Destructuring happens with objects and arrays:
 
-const arr = [1, 2, 3];
+const arr = [1, 2, 3]
 
-const [first, second, third, fourth] = arr;
+const [first, second, third, fourth] = arr
 
-console.log(first); //  1
-console.log(second); //  2
-console.log(third); //  3
-console.log(fourth); // undefined
+console.log(first) //  1
+console.log(second) //  2
+console.log(third) //  3
+console.log(fourth) // undefined
 
 const obj = {
   name: "Alice",
   Age: 25,
   address: {
     city: "Wonderland",
-    country: "Neverland",
-  },
-};
+    country: "Neverland"
+  }
+}
 
 const {
   name,
   Age,
   AGE,
-  address: { city, country },
-} = obj;
+  address: { city, country }
+} = obj
 
-console.log(name); // Alice
+console.log(name) // Alice
 
-console.log(Age); // 25
+console.log(Age) // 25
 
-console.log(city); // Wonderland
+console.log(city) // Wonderland
 
-console.log(country); // Neverland
+console.log(country) // Neverland
 
-console.log(address); // ReferenceError
+console.log(address) // ReferenceError
 
-console.log(AGE); // undefined
+console.log(AGE) // undefined
 
-const numbers = [1, 2, 3, 4, 5];
+const numbers = [1, 2, 3, 4, 5]
 
-const [x, ...y] = numbers;
+const [x, ...y] = numbers
 
-console.log(x); // 1
-console.log(y); // [2, 3, 4, 5]
+console.log(x) // 1
+console.log(y) // [2, 3, 4, 5]
 
 // * Set is unique collections of data like strings and arrays.
 
-const set = new Set([1, 2, 3, 4, 4, 5, 5, 1]);
+const set = new Set([1, 2, 3, 4, 4, 5, 5, 1])
 
 // Set(5) [1,2,3,4,5]
 
-set.has(1); // true
-set.add("h");
-arr.delete(4);
-set.clear(); // deletes everything
+set.has(1) // true
+set.add("h")
+arr.delete(4)
+set.clear() // deletes everything
 
-const arr = Array.from(set); // converting back to array
+const arr = Array.from(set) // converting back to array
 
 // * Symbols are usually used as unique keys for objects
 
-const symKey = Symbol("uniqueKey");
-let myObject = {};
-myObject[symKey] = "value1";
+const symKey = Symbol("uniqueKey")
+
+// Symbols are created using factory function rather than a constructor function so no need to use 'new' keyword.
+
+// Reminder: Factory function returns an object itself rather than creating a new instance of a class.
+
+let myObject = {}
+myObject[symKey] = "value1"
 
 // * Map is basically an object with flexible keys
 
-const map = new Map();
+const map = new Map()
 
-map.set("name", "John");
-map.set(12, "age");
+map.set("name", "John")
+map.set(12, "age")
 
-map.get(12); // 'age'    vice versa doesn't work
-map.has("name"); // true
+map.get(12) // 'age'    vice versa doesn't work
+map.has("name") // true
 
-map.delete("name");
-map.clear();
+map.delete("name")
+map.clear()
 
-// it has -> instead of :
+const num = 10.423342
+console.log(num.toFixed(2))
+
+// The statement "everything is an object".
+
+const num = new Number(10) // explicit-boxing
+const num = 10 // auto-boxing
+
+num1.text = "hi"
+num2.text = "hi"
+
+console.log(typeof num1) // number
+console.log(typeof num2) // object
+
+console.log(num1) // 10
+console.log(num2) // Number {10, text: 'hi'}
+
+console.log(num1 + num2) // 20
+
+// the reason num1.text doesn't thrown an error because whenever we use methods or properties on primitve values, it is temporarily wrapped with the respective wrapper function Number(), Boolean(), String() etc...
+
+// and when its converted back to the primitive value after the operation, the applied property doesn't persist.
+
+// that's why the type shows as number or string or boolean and not object.
