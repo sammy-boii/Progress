@@ -249,7 +249,7 @@ Obviously the rate in which the runtime and input increases isn't constant and v
 
   <img src = 'https://miro.medium.com/v2/resize:fit:832/1*leqL9hlJApjUuzmdwalwKA.png'>
 
-  There are more like cubic time, logarithmic time, exponential time, etc... 
+  There are several more like cubic time, logarithmic time, linearithmetic (quasi-linear) time, exponential time, etc... 
 
   <img src = 'https://miro.medium.com/v2/resize:fit:1400/1*xq73u1N7ZsTE2MJ9jsj0CA.png' width = 650 height = 400>
 
@@ -858,7 +858,7 @@ function interpolation_search(arr, target) {
   return -1
 }
 
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  // one shots this kinda array lol
 const target = 7
 
 console.log(interpolation_search(arr, target))
@@ -871,7 +871,7 @@ console.log(interpolation_search(arr, target))
 ### Bubble Sort: 
 
 It is a sorting algorithm that compares two adjacent elements and swaps their places if they are not in the right order. 
-Its' time complexity is O($n^2$) so try avoid using it...
+So every iteration, the largest element is sorted to the right. Its' time complexity is O($n^2$)
 
 ```js
 const arr = [6, 3, 2, 1, 2, 10, 9]
@@ -895,16 +895,68 @@ console.log(bubble_sort(arr))
 
 By the completion of the each outer loop i, the largest element will be in the farthest right.  
 So we subtract i from the inner loop j to avoid unnecessary iterations for the sorted items.  
-We also subtract 1 from i and j because we need to sort 9 times at most for 10 items because when 9 items are sorted then the 10th item is already sorted.  
-Another reason for subtracting 1 from j is so that arr [j+1] is never out of index.
+We also subtract 1 from i  because we need to sort 9 times at most for 10 items because when 9 items are sorted then the 10th item is already sorted.  
+And finally the reason for subtracting 1 from j is so that arr [j+1] is not out of index when it reaches the final element.
 
 ### Selection Sort: 
 
+It is a sorting algorithm that stores the minimum value in a variable. After an iteration, the index of that temporary value and the current item index is swapped. So every iteration, the smallest item is sorted to the left. Its' time complexity is O($n^2$)
 
 
 ```js
+function selection_sort(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    let min = i
 
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[min]) {
+        min = j
+      }
+
+      let temp = arr[i]
+      arr[i] = arr[min]
+      arr[min] = temp
+    }
+  }
+
+  return arr
+}
+
+const arr = [3, 5, 7, 10, 8, 9, 2]
+console.log(selection_sort(arr))
 ```
+
+Same logic for i < arr.length - 1.  
+j starts from i+1 as min already stores the value of i.
+
+### Insertion Sort: 
+
+It is a sorting algorithm where we start from index 1. We store it in a temporary variable and if the value to its left is greater than the temporary value then we shift it to the its right. We do this process until a value smaller than it is encountered. Its' time complexity is O($n^2$) but is preferrable to bubble sort and selection sort as it takes less number of steps and in best case scenario it can run in O(n).
+
+```js
+function insertion_sort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+
+    let currentValue = arr[i]
+    let j = i - 1
+
+    while (j >= 0 && arr[j] > currentValue) {
+      arr[j + 1] = arr[j]
+      j--
+    }
+    arr[j + 1] = currentValue
+  }
+
+  return arr
+}
+
+const arr = [3, 5, 7, 10, 8, 9, 2]
+console.log(insertion_sort(arr))
+```
+
+We are starting from index 1 so we can't do i < arr.length - 1.  
+
+reason for arr [j+1] = currrentValue is because j would be pointing to the one value before it. 
 
 ### Quick Sort: 
 
