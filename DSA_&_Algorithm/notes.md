@@ -18,7 +18,7 @@ For objects, a block of memory is reserved. The size of the block depends on the
 
 If the simple data types exceeds the opted value, then it either throwns an overflow error or the language relocates to accomodate for the change in size.
 
-In high level languages like Python and JS these all problems are handled by the compiler so no need to worry about it.
+In high level dynamic languages like Python and JS these all problems are handled by the compiler so no need to worry about it.
 
 &nbsp;
 
@@ -221,7 +221,7 @@ Obviously the rate in which the runtime and input increases isn't constant and v
   <br>
   <img src = 'https://www.theknowledgeacademy.com/_files/images/Constant_Time_Complexity.png' width = 500 height = 300>
 
-- ### Quadatric Time O(n²) => big O of n² | O of n²
+- ### Quadatric Time O($n^2$) => big O of $n^2$ | O of $n^2$
   
   Algorithms with quadratic time complexity have a runtime that is proportional to the square of the size of the input. This is common is nested iterations.
 
@@ -324,12 +324,189 @@ same for any number of loops
 
 &nbsp;
 
-# Data structures:
+## Data structures:
 
-A data structure is a way of organizing and storing data
+A data structure is a way of organizing and storing data.
+
+> Associative arrays, hash table, objects and maps can be used interchangably.
+
+## Array:
+
+It is a data structure used to store collection of values each identified with a unique index.
+
+<img src = 'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230726162247/Array-data-structure.png' width = 600 height = 300>  
+  
+&nbsp;
+
+```js
+const arr1 = [1,2,3,4,5]
+const arr2 = ['a','b','c','d','e']
+
+arr[1]
+arr[0] + arr[1]
+```
+
+You can also use strings for indexing: 
+
+```js
+const arr = [1, 2, 3, 4, 5]
+
+arr["a"] = 6
+console.log(arr)  // [ 1, 2, 3, 4, 5, a: 6 ]
+
+```
+&nbsp;
+## Stack
+
+A stack is a LIFO (Last In First Out) data structure. The items are stacked in a vertical manner and push() and pop() method are used to store and remove items from the stack.
+
+<img src = 'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230726165552/Stack-Data-Structure.png' width = 600 height = 300>
+
+&nbsp;
+
+```js
+class Stack {
+  constructor() {
+    this.items = []
+  }
+
+  push(item) {
+    this.items.push(item)
+  }
+
+  pop(item) {
+    if (this.isEmpty()) {
+      return "Underflow"
+    }
+    this.items.pop(item)
+  }
+
+  isEmpty() {
+    return this.items.length === 0
+  }
+
+  peek() {
+    if (this.isEmpty()) {
+      return "No items in the stack"
+    }
+    return this.items[this.items.length - 1] // returns top element
+  }
+
+  print() {
+    console.log(this.items.join())
+  }
+
+  size() {
+    return this.items.length
+  }
+}
+
+const stack = new Stack()
+
+stack.push(1)
+stack.push(2)
+stack.push(3)
+
+stack.pop()
+
+console.log(stack)
+stack.print()
+
+console.log(stack.peek())
+
+console.log(stack.size())
+
+console.log(stack.isEmpty())
+
+```
+
+This data structure might seem useless (and kinda is) but there are some intersting use cases:
+
+- Undo / Redo features 
+- Go back and forth in browser history
+- Keep track of function calls and local variables (Call Stack)
+- Back-tracking alogorithms
+  
+&nbsp;
+
+## Queue: 
+
+A queue is a FIFO (First In First Out) data structure. They are aligned in a veritcal manner and push() and shift() method are used to queue and dequeue items from the queue.
+
+<img src ='https://media.geeksforgeeks.org/wp-content/cdn-uploads/20221213113312/Queue-Data-Structures.png' width = 600 height = 300>  
+
+&nbsp;
+
+```js
+class Queue {
+  constructor() {
+    this.items = []
+  }
+
+  queue(item) {
+    this.items.push(item)
+  }
+
+  dequeue(item) {
+    if (this.isEmpty()) {
+      return "Underflow"
+    }
+    this.items.shift(item)
+  }
+
+  isEmpty() {
+    return this.items.length === 0
+  }
+
+  front() {
+    if (this.isEmpty()) {
+      return "No items in the queue"
+    }
+    return this.items[0] // returns first element element
+  }
+
+  print() {
+    console.log(this.items.join())
+  }
+
+  size() {
+    return this.items.length
+  }
+}
+
+const queue = new Queue()
+
+queue.queue(1)
+queue.queue(2)
+queue.queue(3)
+
+queue.dequeue()
+
+console.log(queue.front())
+
+console.log(queue.isEmpty())
+
+queue.print()
+
+console.log(queue.size())
+
+```
+
+
+> Priority queue is a type of queue that dequeues on the basis of priority rather than the order they were queued in. Don't worry about the code :D (trust me ... 😢)
+
+
+Use cases: 
+
+- BFS algorithms
+- Task scheduling
+- Messaging System
+- Asynchronous Programming (Callback queue and Microtask queue)
+- Keyboard buffer
+
+&nbsp;
 
  ## Linked List
-
 
  It is a data structure that consits of elements (nodes) which point to the next element in the sequence. The last node usually points to null. 
 
@@ -523,7 +700,7 @@ A binary search tree is a specific type of binary tree where the value of each n
 
 So the parent must be the middle value between its descendants where it should be greater than the left descendant and less than the right descendant. 
 
-<img src = 'https://courses.engr.illinois.edu/cs225/sp2019/assets/notes/bst/bsttreetraversal.png' width = 450 height = 320> 
+<img src = 'https://courses.engr.illinois.edu/cs225/sp2019/assets/notes/bst/bsttreetraversal.png' width = 500 height = 320> 
 
 &nbsp;
 
@@ -575,38 +752,26 @@ T = O(n)
 
 ## Algorithms: 
 
-### Binary Search: 
+An algorithm is a step-by-step procedure or set of rules designed to solve a specific problem. It is a sequence of well-defined instructions that, when followed, lead to the desired outcome. 
 
-It is a a searching algorithm that repeatedly divides the list in half until the element is found. Its' time complexity is O(logn) cuz log is kinda like the inverse of exponent and binary search repeatedly halves the list.
+- Sorting Algorithms: Organizing a list of items into a specific order (e.g., bubble sort, quicksort, merge sort).
 
-> Note: works only in sorted arrays
+- Searching Algorithms: Finding a specific item or value in a collection (e.g., binary search, linear search).
 
-```js
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+- Graph Algorithms: Analyzing and traversing graphs (e.g., depth-first search, breadth-first search).
 
-const target = arr[Math.floor(Math.random() * arr.length)]
-```
-```js
-function binary_search(arr, target) {
-  let left = 0
-  let right = arr.length - 1
+- Numerical Algorithms: Performing mathematical computations (e.g., algorithms for matrix multiplication, numerical integration).
 
-  while (left <= right) {
-    const mid = Math.floor((left + right) / 2)
+- Machine Learning Algorithms: Training models and making predictions based on data (e.g., linear regression, decision trees, neural networks).
 
-    if (arr[mid] === target) {
-      return mid
-    } else if (target < arr[mid]) {
-      right = mid - 1
-    } else {
-      left = mid + 1
-    }
-  }
+- Encryption Algorithms: Securing information by encoding it in a way that is difficult to decipher without the proper key (e.g., RSA algorithm).
 
-  return -1
-}
-console.log(binary_search(arr, target))
-```
+&nbsp; 
+
+### Linear Search:
+
+It is the simplest of searching algorithm where we iterate through each item one at a time. The data doesn't need to be sorted and it is good for medium and small data set. Its' time complexity is O(n).
+
 ```js
 function linear_search(arr, target) {
   for (const i in arr) {
@@ -621,6 +786,126 @@ console.log(linear_search(arr, target))
 ```
 &nbsp;
 
+### Binary Search: 
+
+It is a a searching algorithm that gets the middle number and repeatedly divides the list in half until the element is found. It uses left and right pointers to continously narrow down the list. Its' time complexity is O(logn) cuz log is kinda like the inverse of exponent and binary search repeatedly halves the list.
+
+> Note: works only in sorted arrays
+
+```js
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+const target = 8
+```
+```js
+function binary_search(arr, target) {
+  let left = 0
+  let right = arr.length - 1
+
+  while (left <= right) {
+    const mid = Math.floor(left + (right-left) / 2) // Math.round() and Math.ceil() works too
+
+    if (arr[mid] === target) {
+      return mid
+    } else if (target < arr[mid]) {
+      right = mid - 1
+    } else {
+      left = mid + 1
+    }
+  }
+
+  return -1
+}
+console.log(binary_search(arr, target))
+```
+
+> The reason for not using (left+right) / 2 is because if left and right are very large numbers, then it could cause integer overflow.
+
+&nbsp;
+
+### Interpolation Search: 
+
+It is a searching algorithm that works best with sorted and uniformly distributed list (having equal gaps between all elements). Its' time complexity is O(log(logn)). Worst case: O(n) when input increases rapidly. It makes a calculated probe guess of where the target might be.  
+
+Probe is the attempted examined value to see if its the target. In binary search, middle value is the probe. 
+
+$$ \text{probe} = \text{left} + \left\lfloor \frac{(\text{target} - \text{arr[left]}) \cdot (\text{right} - \text{left})}{\text{arr[right]} - \text{arr[left]}} \right\rfloor $$
+
+
+```js
+function interpolation_search(arr, target) {
+  let left = 0
+  let right = arr.length - 1
+
+  while (left <= right && target >= arr[left] && target <= arr[right]) {
+    const probe =
+      left +
+      Math.floor(
+        ((target - arr[left]) * (right - left)) / (arr[right] - arr[left])
+      )
+
+    if (arr[probe] === target) {
+      return probe
+    }
+
+    if (arr[probe] < target) {
+      left = probe + 1
+    } else {
+      right = probe - 1
+    }
+  }
+
+  return -1
+}
+
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const target = 7
+
+console.log(interpolation_search(arr, target))
+
+```
+
+
+&nbsp;
+
+### Bubble Sort: 
+
+It is a sorting algorithm that compares two adjacent elements and swaps their places if they are not in the right order. 
+Its' time complexity is O($n^2$) so try avoid using it...
+
+```js
+const arr = [6, 3, 2, 1, 2, 10, 9]
+
+function bubble_sort(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0; j < arr.length - 1 - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        const temp = arr[j]
+        arr[j] = arr[j + 1]
+        arr[j + 1] = temp
+      }
+    }
+  }
+  return arr
+}
+
+console.log(bubble_sort(arr))
+
+```
+
+By the completion of the each outer loop i, the largest element will be in the farthest right.  
+So we subtract i from the inner loop j to avoid unnecessary iterations for the sorted items.  
+We also subtract 1 from i and j because we need to sort 9 times at most for 10 items because when 9 items are sorted then the 10th item is already sorted.  
+Another reason for subtracting 1 from j is so that arr [j+1] is never out of index.
+
+### Selection Sort: 
+
+
+
+```js
+
+```
+
 ### Quick Sort: 
 
 It is a sorting algorithm that involves
@@ -628,7 +913,7 @@ It is a sorting algorithm that involves
 ```js
 const arr = [4, 3, 6, 7, 1, 0, 10, 4, -2]
 
-function quickSort(arr) {
+function quick_sort(arr) {
   if (arr.length <= 1) {
     return arr // base case
   }
@@ -645,8 +930,8 @@ function quickSort(arr) {
     }
   }
 
-  return [...quickSort(left), pivot, ...quickSort(right)]
+  return [...quick_sort(left), pivot, ...quick_sort(right)]
 }
 
-console.log(quickSort(arr))
+console.log(quick_sort(arr))
 ```
