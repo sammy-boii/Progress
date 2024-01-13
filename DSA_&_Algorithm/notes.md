@@ -153,7 +153,7 @@ It is mathematically expressed with big O notation which provides the upper boun
 Obviously the rate in which the runtime and input increases isn't constant and varies so different types of time complexities are: 
 <br>
 
-- ### Linear Time O(n) => big O of n | O of n
+- ## Linear Time O(n) => big O of n | O of n
   
   Algorithms with linear time complexity have a runtime that is directly proportional to the size of the input.
   As the input size increases, the time taken to execute the algorithm also increases linearly. 
@@ -182,7 +182,7 @@ Obviously the rate in which the runtime and input increases isn't constant and v
 
 <br>
 
-- ### Constant Time O(1) => big O of 1 | O of 1
+- ## Constant Time O(1) => big O of 1 | O of 1
   
   Algorithms with constant time complexity have a fixed or constant runtime, regardless of the size of the input.
   No matter how large the input is, the execution time remains the same.
@@ -221,7 +221,9 @@ Obviously the rate in which the runtime and input increases isn't constant and v
   <br>
   <img src = 'https://www.theknowledgeacademy.com/_files/images/Constant_Time_Complexity.png' width = 500 height = 300>
 
-- ### Quadatric Time O($n^2$) => big O of $n^2$ | O of $n^2$
+&nbsp;
+
+- ## Quadatric Time O($n^2$) => big O of $n^2$ | O of $n^2$
   
   Algorithms with quadratic time complexity have a runtime that is proportional to the square of the size of the input. This is common is nested iterations.
 
@@ -253,7 +255,9 @@ Obviously the rate in which the runtime and input increases isn't constant and v
 
   <img src = 'https://miro.medium.com/v2/resize:fit:1400/1*xq73u1N7ZsTE2MJ9jsj0CA.png' width = 650 height = 400>
 
-### Calculating Time Complexity: 
+&nbsp;
+
+## Calculating Time Complexity: 
 
 > Note: If two functions have time complexity of O(n) or O(1) or anything similar, it doesn't necessarily mean
 they both have same execution time because common sense.
@@ -653,7 +657,7 @@ linkedList.append(2)
 console.log(linkedList)
 
 ```
-
+&nbsp;
 
 ## Tree
 
@@ -686,7 +690,7 @@ Criterias of a Tree:
 
 &nbsp;
 
-### Binary Tree
+## Binary Tree
 
 A binary tree is a tree data structure in which each node can have zero, one, or at most two children which are referred to as the left child and the right child.
 
@@ -694,7 +698,7 @@ A binary tree is a tree data structure in which each node can have zero, one, or
 
 &nbsp;
 
-### Binary Search Tree (BST)
+## Binary Search Tree (BST)
 
 A binary search tree is a specific type of binary tree where the value of each node in the tree is greater than or equal to all the values in its left subtree and less than or equal to all the values in its right subtree.
 
@@ -768,7 +772,7 @@ An algorithm is a step-by-step procedure or set of rules designed to solve a spe
 
 &nbsp; 
 
-### Linear Search:
+## Linear Search:
 
 It is the simplest of searching algorithm where we iterate through each item one at a time. The data doesn't need to be sorted and it is good for medium and small data set. Its' time complexity is O(n).
 
@@ -786,7 +790,7 @@ console.log(linear_search(arr, target))
 ```
 &nbsp;
 
-### Binary Search: 
+## Binary Search: 
 
 It is a a searching algorithm that gets the middle number and repeatedly divides the array in half until the element is found. It uses left and right pointers to continously narrow down the array. Its' time complexity is O(logn) cuz log is kinda like the inverse of exponent and binary search repeatedly halves the array.
 
@@ -823,13 +827,17 @@ console.log(binary_search(arr, target))
 
 &nbsp;
 
-### Interpolation Search: 
+## Interpolation Search: 
 
 It is a searching algorithm that works best with sorted and uniformly distributed array (having equal gaps between all elements). Its' time complexity is O(log(logn)). Worst case: O(n) when input increases rapidly. It makes a calculated probe guess of where the target might be.  
 
 Probe is the attempted examined value to see if its the target. In binary search, middle value is the probe. 
 
+&nbsp;
+
 $$ \text{probe} = \text{left} + \left\lfloor \frac{(\text{target} - \text{arr[left]}) \cdot (\text{right} - \text{left})}{\text{arr[right]} - \text{arr[left]}} \right\rfloor $$
+
+&nbsp;
 
 
 ```js
@@ -868,7 +876,7 @@ console.log(interpolation_search(arr, target))
 
 &nbsp;
 
-### Bubble Sort: 
+## Bubble Sort: 
 
 It is a sorting algorithm that compares two adjacent elements and swaps their places if they are not in the right order. 
 So every iteration, the largest element is sorted to the right. Its' time complexity is O($n^2$)
@@ -898,7 +906,9 @@ So we subtract i from the inner loop j to avoid unnecessary iterations for the s
 We also subtract 1 from i  because we need to sort 9 times at most for 10 items because when 9 items are sorted then the 10th item is already sorted.  
 And finally the reason for subtracting 1 from j is so that arr [j+1] is not out of index when it reaches the final element.
 
-### Selection Sort: 
+&nbsp;
+
+## Selection Sort: 
 
 It is a sorting algorithm that stores the minimum value in a variable. After an iteration, the index of that temporary value and the current item index is swapped. So every iteration, the smallest item is sorted to the left. Its' time complexity is O($n^2$)
 
@@ -929,7 +939,9 @@ console.log(selection_sort(arr))
 Same logic for i < arr.length - 1.  
 j starts from i+1 as min already stores the value of i.
 
-### Insertion Sort: 
+&nbsp;
+
+## Insertion Sort: 
 
 It is a sorting algorithm where we start from index 1. We store it in a temporary variable and if the value to its left is greater than the temporary value then we shift it to the its right. We do this process until a value smaller than it is encountered. Its' time complexity is O($n^2$) but is preferrable to bubble sort and selection sort as it takes less number of steps and in best case scenario it can run in O(n).
 
@@ -958,9 +970,11 @@ We are starting from index 1 so we can't do i < arr.length - 1.
 
 reason for arr [j+1] = currrentValue is because j would be pointing to the one value before it. 
 
-### Quick Sort: 
+&nbsp;
 
-It is a sorting algorithm that uses a divide-and-conquer strategy to efficiently sort an array. The basic idea is to select a pivot element from the array and partition the other elements into two sub-arrays according to whether they are less than or greater than the pivot. The sub-arrays are then recursively sorted.
+## Quick Sort: 
+
+It is a sorting algorithm that uses a divide-and-conquer strategy to efficiently sort an array. The basic idea is to select a pivot element from the array and partition the other elements into two sub-arrays according to whether they are less than or greater than the pivot. The sub-arrays are then recursively sorted. Its' time complexity is O(n log(n)) but if the array is already sorted in ascending or descending then its' time complexity is O($n^2$)
 
 ```js
 const arr = [4, 3, 6, 7, 1, 0, 10, 4, -2]
@@ -988,9 +1002,11 @@ function quick_sort(arr) {
 console.log(quick_sort(arr))
 ```
 
-### Merge Sort: 
+&nbsp;
 
-It is a divide-and-conquer sorting algorithm that works by dividing the array into smaller and recursively sorting the sub-arrays and merging them back together. 
+## Merge Sort: 
+
+It is a divide-and-conquer sorting algorithm that works by dividing the array into smaller and recursively sorting the sub-arrays and merging them back together. Its time complexity is O(n logn)
 
 ```js
 function merge_sort(arr) {

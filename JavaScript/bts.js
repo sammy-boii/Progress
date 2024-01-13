@@ -22,12 +22,12 @@ Callstack / JS Engine
 
 */
 
-var GLOBAL = 1;
+var GLOBAL = 1
 function func() {
-  var local = 10;
-  console.log(local);
+  var local = 10
+  console.log(local)
 }
-func();
+func()
 /*
 
 ? When it finishes parsing and stuff, a Global Execution Context (GEC) is created and allocates memory for each variable and function. For variables, it assigns undefined (const or let wouldn't get undefined ig) and for functions, it keeps the whole code in the memory.
@@ -40,7 +40,27 @@ func();
 
 ? Heap and Stack are two different places where data can be stored. As mentioned, a stack gets removed after execution so its logical that local variables are stored in the stack. This is the reason why we can't access them outside the function because they will have finished executing and no longer available with the exceptions of closure.
 
+? Stacks are LIFO (Last In First Out) data structure so mean if we were to call a function inside another function, that newly called function would sit on top of the stack.
+
+*/
+
+function f1() {
+  const a = "Hi"
+  function f2() {
+    console.log(a)
+  }
+  f2()
+}
+
+f1()
+
+/*
+
+? Now the question is, since f2 would be on top of the stack, how does it get access to the variable 'a' which is below it in the stack and accessing values from any other place than the top is violating the stack's principles. So the answer is simply closures. 
+
 ? Heaps on the other hand are used to store global data because it should be accessible anywhere at anytime and shouldn't rely on function's invocation. So in the above code, GLOBAL is stored in heap and local is stored in stack when the function is invoked.
+
+? There are some exceptions where the values are stored in the heap. For example, when creating new threads, each thread has its own call stack and is completed asynchronously independent of one another. When the thread finishes, the result needs to be stored in the heap cause the newly created stack would be destroyed after the completion. 
 
 ? When u store by reference, it automatically gets stored in the heap. But lets say that reference is a local variable. When the stack is removed, the reference breaks too and is no longer needed. So that's where the garbage collector comes in play.
 
@@ -72,7 +92,7 @@ So when one JS task is done, it goes around. If requestAnimationFrame() is calle
 
 while (true) {}
 
-setTimeout(func, 0);
+setTimeout(func, 0)
 
 /*
 
