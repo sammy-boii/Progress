@@ -754,7 +754,7 @@ T = O(n)
 
 An algorithm is a step-by-step procedure or set of rules designed to solve a specific problem. It is a sequence of well-defined instructions that, when followed, lead to the desired outcome. 
 
-- Sorting Algorithms: Organizing a list of items into a specific order (e.g., bubble sort, quicksort, merge sort).
+- Sorting Algorithms: Organizing an array of items into a specific order (e.g., bubble sort, quicksort, merge sort).
 
 - Searching Algorithms: Finding a specific item or value in a collection (e.g., binary search, linear search).
 
@@ -788,7 +788,7 @@ console.log(linear_search(arr, target))
 
 ### Binary Search: 
 
-It is a a searching algorithm that gets the middle number and repeatedly divides the list in half until the element is found. It uses left and right pointers to continously narrow down the list. Its' time complexity is O(logn) cuz log is kinda like the inverse of exponent and binary search repeatedly halves the list.
+It is a a searching algorithm that gets the middle number and repeatedly divides the array in half until the element is found. It uses left and right pointers to continously narrow down the array. Its' time complexity is O(logn) cuz log is kinda like the inverse of exponent and binary search repeatedly halves the array.
 
 > Note: works only in sorted arrays
 
@@ -825,7 +825,7 @@ console.log(binary_search(arr, target))
 
 ### Interpolation Search: 
 
-It is a searching algorithm that works best with sorted and uniformly distributed list (having equal gaps between all elements). Its' time complexity is O(log(logn)). Worst case: O(n) when input increases rapidly. It makes a calculated probe guess of where the target might be.  
+It is a searching algorithm that works best with sorted and uniformly distributed array (having equal gaps between all elements). Its' time complexity is O(log(logn)). Worst case: O(n) when input increases rapidly. It makes a calculated probe guess of where the target might be.  
 
 Probe is the attempted examined value to see if its the target. In binary search, middle value is the probe. 
 
@@ -960,7 +960,7 @@ reason for arr [j+1] = currrentValue is because j would be pointing to the one v
 
 ### Quick Sort: 
 
-It is a sorting algorithm that involves
+It is a sorting algorithm that uses a divide-and-conquer strategy to efficiently sort an array. The basic idea is to select a pivot element from the array and partition the other elements into two sub-arrays according to whether they are less than or greater than the pivot. The sub-arrays are then recursively sorted.
 
 ```js
 const arr = [4, 3, 6, 7, 1, 0, 10, 4, -2]
@@ -987,3 +987,81 @@ function quick_sort(arr) {
 
 console.log(quick_sort(arr))
 ```
+
+### Merge Sort: 
+
+It is a divide-and-conquer sorting algorithm that works by dividing the array into smaller and recursively sorting the sub-arrays and merging them back together. 
+
+```js
+function merge_sort(arr) {
+  if (arr.length <= 1) {
+    return arr // base case
+  }
+
+  const middle = Math.floor(arr.length / 2)
+  const left = arr.slice(0, middle)
+  const right = arr.slice(middle)
+
+  return merge(merge_sort(left), merge_sort(right))
+}
+
+function merge(left, right) {
+  let arr = []
+
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      arr.push(left.shift())
+    } else {
+      arr.push(right.shift())
+    }
+  }
+
+  return [...arr, ...left, ...right]
+}
+
+const arr = [4, 2, 3, 10, 8, 5, 1]
+console.log(merge_sort(arr))
+```
+
+- First the array is divided into two parts [4, 2, 3] and [10, 8, 5, 1]  
+  
+- now merge_sort() is called on the left side i.e [4, 2, 3]  
+  
+- the function is called again and [4, 2, 3] is again split into [4, 2] and [3] 
+   
+- merge_sort() is again called merge_sort (left = [4, 2], merge_sort (right = [3]))  
+  
+- for [4, 2] merge_sort() is again called and they are seperated individually and they go into merge() as merge (left = 4, right = 2)
+  
+  - 4 and 2 is compared and smaller element 2 is shifted into the new array 'arr'
+  
+  - the returned value is [2, [] ,4] => [2, 4]
+  
+- for [3], [3] itself is returned because of the base case. 
+  
+- the arrays now are [2, 4] and [3]. It will now be returned and merge() will be called on it. 
+  
+  - First 2 and 3 are compared and 2 is shifted into the new array 
+  
+  - Then 4 and 3 are compared and 3 is shifted into the new array
+  
+  - And since the right array's length is 0, it breaks out and concanetes the array and the remaning element 4
+  
+  - returned value = [2, 3, 4]
+  
+- this all happens for the left part. right part is the same too. It gets split into 2 different arrays [10, 8] and [5, 1]. [10, 8] is sorted as [8, 10] and [5, 1] as [1, 5]. They are merged and sorted as [1, 5, 8, 10]
+  
+- Now for the final comparison, left = [2, 3, 4] and right = [1, 5, 8, 10]
+  
+  - 2 and 1 is compared and 1 is shifted into the new array
+  
+  - 2 and 5 is compared and 2 is shifted into the new array
+  
+  - 3 and 5 is compared and 3 is shifted into the new array
+  
+  - 4 and 5 is compared and 4 is shifted into the new array
+  
+  - The left array is now empty and the returned value is [1, 2, 3, 4, 5, 8, 10] 
+
+ 
+
