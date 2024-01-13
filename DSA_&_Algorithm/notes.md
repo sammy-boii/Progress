@@ -1,176 +1,30 @@
-x
- The amount of bits reserved for datatypes depend on the language. For some its 32 bits for some its something else. 
+## Introduction: 
 
- So int a = 1, a can be stored as 000000....001
+The amount of bits reserved for datatypes depend on the language. For some its 32 bits for some its something else. 
 
- Smallest addressable memory is usually 1 byte long (8 bits)
+So int a = 1, a can be stored as 000000....001
 
- So storing an integer can take up 4 consecutive memory addresses (8 x 4 = 32bits)
+Smallest addressable memory is usually 1 byte long (8 bits)
 
- In most languages, simple data types like numbers, booleans, character are directly stored in the memory but complex data types like arrays, objects store the pointer to that value in the memory. 
+So storing an integer can take up 4 consecutive memory addresses (8 x 4 = 32bits)
 
- For simple data types, the size is pre-determined so it knows when to stop reading.
+In most languages, simple data types like numbers, booleans, character are directly stored in the memory but complex data types like arrays, objects store the pointer to that value in the memory. 
 
- But usually for arrays and strings, a null terminator '\0' denotes the end of array.
+For simple data types, the size is pre-determined so it knows when to stop reading.
 
- For objects, a block of memory is reserved. The size of the block depends on the type and number of data inside it. The simple data types are directly stored and complex data types store the pointer. 
+But usually for arrays and strings, a null terminator '\0' denotes the end of array.
 
- If the simple data types exceeds the opted value, then it either throwns an overflow error or the language relocates to accomodate for the change in size.
+For objects, a block of memory is reserved. The size of the block depends on the type and number of data inside it. The simple data types are directly stored and complex data types store the pointer. 
 
- In high level languages like Python and JS these all problems are handled by the compiler so no need to worry about it.
+If the simple data types exceeds the opted value, then it either throwns an overflow error or the language relocates to accomodate for the change in size.
 
- ## Linked List
+In high level languages like Python and JS these all problems are handled by the compiler so no need to worry about it.
 
-
- It is a data structure that consits of elements (nodes) which point to the next element in the sequence. The last node usually points to null. 
-
-<img src = 'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230726162542/Linked-List-Data-Structure.png' width = 600 height = 300>
-
- It is usually uni-directional but doubly linked list is bi-directional.
-
- <img src = 'https://www.boardinfinity.com/blog/content/images/2022/11/Untitled-design--16-.jpg' width = 600 height = 300>
-
- It's called a 'list' but technically its a bunch of objects nested inside one another pointing to the subsequent object. 
-
- The basic boilerplate is as follows:
-
- - An object called linkedList is created which has one property 'head'. It denotes the starting element/node of the list.
-  
- - 'head' will contain an object element which will have property 'data' and 'next'. This is the starting element/node of the list. 
-  
- - 'data' is the actual data stored and 'next' will also have an object which is the subsequent element in the list.
-
-
-```js
-linkedList {
-    head: obj1 {
-        data: 1
-        next: obj2 {
-            data: 2
-            next: obj3 {
-                data: 3
-                next: null
-            }
-        }
-    }
-}
-```
-
-The 'head' property belongs to the linkedList object itself and the 'data' and 'next' belong to the respective objects.
-
-So first and foremost, we create a linkedList with a 'head' property and keep it null
-
-```js
-class LinkedList {
-    constructor() {
-        this.head = null
-    }
-}
-
-const linkedList = new LinkedList()
-```
-Now to append elements in the list, we can use a method and have it create a new element with the given data and 'next' value. this in LinkedList belongs to 'linkedList' and this in Node belongs to 'newNode'
-
-```js
-class Node {
-    constructor () {
-        this.data = data
-        this.next = null
-    }
-}
-
-class LinkedList {
-    constructor() {
-        this.head = null
-    }
-
-    append(data) {
-        const newNode = new Node(data)
-    }
-}
-
-const linkedList = new LinkedList()
-linkedList.append(1)
-```
-
-Now we'll check if the list is empty and if so, the appended element will be the first element aka it'll be the 'head' property.
-
-```js
-class Node {
-  constructor(data) {
-    this.data = data
-    this.next = null
-  }
-}
-
-class LinkedList {
-  constructor() {
-    this.head = null
-  }
-
-  append(data) {
-    const newNode = new Node(data)
-
-    if (this.head == null) {
-      this.head = newNode
-      return
-    }
-  }
-}
-
-const linkedList = new LinkedList()
-linkedList.append(1)
-```
-
-- The first element is assigned to head and returned.
-- Now for rest, we always start from the head. 
-- We assign the currentNode as this.head
-- this is referring to the entire list.
-- Now we loop while currentNode.next / linkedList.head.next is not null. But it is so we skip it and directly assign's the currentNode.next as the new node (second element)
-- Now when we append another element, the 'next' of the first element is the second element, so it'll go through the loop and change the 'currentNode' to the element after it 'currentNode.next' which is the second element.
-- But again the second's element's next is null so it skips the loop and assigns the third element as its' next value
-
-```js
-class Node {
-  constructor(data) {
-    this.data = data
-    this.next = null
-  }
-}
-
-class LinkedList {
-  constructor() {
-    this.head = null
-  }
-
-  append(data) {
-    const newNode = new Node(data)
-
-    if (this.head == null) {
-      this.head = newNode
-      return
-    }
-
-    let currentNode = this.head
-    while (currentNode.next != null) {
-      currentNode = currentNode.next
-    }
-    currentNode.next = newNode
-  }
-}
-
-const linkedList = new LinkedList()
-
-linkedList.append(1)
-linkedList.append(2)
-
-console.log(linkedList)
-
-```
+&nbsp;
 
 ## Recursion
 
-It's a function calling itself until the base case is met blah blah blah.
+It's a function calling itself until the base case is met.
 
 Formula of factorial is: n! = n (n-1) (n-2) (n-3) ... 3.2.1
 
@@ -467,6 +321,163 @@ same for any number of loops
 
 &nbsp;
 
+
+&nbsp;
+
+# Data structures:
+
+A data structure is a way of organizing and storing data
+
+ ## Linked List
+
+
+ It is a data structure that consits of elements (nodes) which point to the next element in the sequence. The last node usually points to null. 
+
+<img src = 'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230726162542/Linked-List-Data-Structure.png' width = 600 height = 300>
+
+ It is usually uni-directional but doubly linked list is bi-directional.
+
+ <img src = 'https://www.boardinfinity.com/blog/content/images/2022/11/Untitled-design--16-.jpg' width = 600 height = 300>
+
+ It's called a 'list' but technically its a bunch of objects nested inside one another pointing to the subsequent object. 
+
+ The basic boilerplate is as follows:
+
+ - An object called linkedList is created which has one property 'head'. It denotes the starting element/node of the list.
+  
+ - 'head' will contain an object element which will have property 'data' and 'next'. This is the starting element/node of the list. 
+  
+ - 'data' is the actual data stored and 'next' will also have an object which is the subsequent element in the list.
+
+
+```js
+linkedList {
+    head: obj1 {
+        data: 1
+        next: obj2 {
+            data: 2
+            next: obj3 {
+                data: 3
+                next: null
+            }
+        }
+    }
+}
+```
+
+The 'head' property belongs to the linkedList object itself and the 'data' and 'next' belong to the respective objects.
+
+So first and foremost, we create a linkedList with a 'head' property and keep it null
+
+```js
+class LinkedList {
+    constructor() {
+        this.head = null
+    }
+}
+
+const linkedList = new LinkedList()
+```
+Now to append elements in the list, we can use a method and have it create a new element with the given data and 'next' value. this in LinkedList belongs to 'linkedList' and this in Node belongs to 'newNode'
+
+```js
+class Node {
+    constructor () {
+        this.data = data
+        this.next = null
+    }
+}
+
+class LinkedList {
+    constructor() {
+        this.head = null
+    }
+
+    append(data) {
+        const newNode = new Node(data)
+    }
+}
+
+const linkedList = new LinkedList()
+linkedList.append(1)
+```
+
+Now we'll check if the list is empty and if so, the appended element will be the first element aka it'll be the 'head' property.
+
+```js
+class Node {
+  constructor(data) {
+    this.data = data
+    this.next = null
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null
+  }
+
+  append(data) {
+    const newNode = new Node(data)
+
+    if (this.head == null) {
+      this.head = newNode
+      return
+    }
+  }
+}
+
+const linkedList = new LinkedList()
+linkedList.append(1)
+```
+
+- The first element is assigned to head and returned.
+- Now for rest, we always start from the head. 
+- We assign the currentNode as this.head
+- this is referring to the entire list.
+- Now we loop while currentNode.next / linkedList.head.next is not null. But it is so we skip it and directly assign's the currentNode.next as the new node (second element)
+- Now when we append another element, the 'next' of the first element is the second element, so it'll go through the loop and change the 'currentNode' to the element after it 'currentNode.next' which is the second element.
+- But again the second's element's next is null so it skips the loop and assigns the third element as its' next value
+
+```js
+class Node {
+  constructor(data) {
+    this.data = data
+    this.next = null
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null
+  }
+
+  append(data) {
+    const newNode = new Node(data)
+
+    if (this.head == null) {
+      this.head = newNode
+      return
+    }
+
+    let currentNode = this.head
+    while (currentNode.next != null) {
+      currentNode = currentNode.next
+    }
+    currentNode.next = newNode
+  }
+}
+
+const linkedList = new LinkedList()
+
+linkedList.append(1)
+linkedList.append(2)
+
+console.log(linkedList)
+
+```
+
+
 ## Tree
 
 A tree is a hierarchical data structure that consists of nodes connected by edges. 
@@ -512,4 +523,130 @@ A binary search tree is a specific type of binary tree where the value of each n
 
 So the parent must be the middle value between its descendants where it should be greater than the left descendant and less than the right descendant. 
 
-<img src = 'https://courses.engr.illinois.edu/cs225/sp2019/assets/notes/bst/bsttreetraversal.png' width = 450 height = 320>
+<img src = 'https://courses.engr.illinois.edu/cs225/sp2019/assets/notes/bst/bsttreetraversal.png' width = 450 height = 320> 
+
+&nbsp;
+
+```js
+class TreeNode {
+  constructor(data) {
+    this.data = data
+    this.left = null
+    this.right = null
+  }
+}
+
+const root = new TreeNode(1)
+const node2 = new TreeNode(2)
+const node3 = new TreeNode(3)
+const node4 = new TreeNode(4)
+const node5 = new TreeNode(5)
+const node6 = new TreeNode(6)
+const node7 = new TreeNode(7)
+
+root.left = node2
+root.right = node3
+
+node2.left = node4
+node2.right = node5
+
+node3.left = node6
+node3.right = node7
+
+console.log(root)
+```
+
+```js
+function sum(root) {
+  if (root == null) { -> O(1)
+    return 0 -> O(1)
+  }
+  return root.data + sum(root.left) + sum(root.right)
+}
+
+console.log(sum(root)) // 28
+```
+Everything takes constant amount of time except the functions recursively being called twice, so:  
+
+T = O(2n)  
+T = O(n)
+
+&nbsp;
+
+## Algorithms: 
+
+### Binary Search: 
+
+It is a a searching algorithm that repeatedly divides the list in half until the element is found. Its' time complexity is O(logn) cuz log is kinda like the inverse of exponent and binary search repeatedly halves the list.
+
+> Note: works only in sorted arrays
+
+```js
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+const target = arr[Math.floor(Math.random() * arr.length)]
+```
+```js
+function binary_search(arr, target) {
+  let left = 0
+  let right = arr.length - 1
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2)
+
+    if (arr[mid] === target) {
+      return mid
+    } else if (target < arr[mid]) {
+      right = mid - 1
+    } else {
+      left = mid + 1
+    }
+  }
+
+  return -1
+}
+console.log(binary_search(arr, target))
+```
+```js
+function linear_search(arr, target) {
+  for (const i in arr) {
+    if (arr[i] == target) {
+      return i
+    }
+  }
+  return -1
+}
+
+console.log(linear_search(arr, target))
+```
+&nbsp;
+
+### Quick Sort: 
+
+It is a sorting algorithm that involves
+
+```js
+const arr = [4, 3, 6, 7, 1, 0, 10, 4, -2]
+
+function quickSort(arr) {
+  if (arr.length <= 1) {
+    return arr // base case
+  }
+
+  const pivot = arr[0]
+  const left = []
+  const right = []
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < pivot) {
+      left.push(arr[i])
+    } else {
+      right.push(arr[i])
+    }
+  }
+
+  return [...quickSort(left), pivot, ...quickSort(right)]
+}
+
+console.log(quickSort(arr))
+```
