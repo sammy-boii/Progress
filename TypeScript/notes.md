@@ -1,5 +1,5 @@
 
-## <span style = 'color: purple'> Statically Typed Languages: 
+##  Statically Typed Languages: 
 
 #### In languages like C++, C#, Java, the data types of variables are determined at compile-time meaning me must explicitly define its type and cannot be changed to another data type during the execution of the program.
 
@@ -15,7 +15,7 @@ return 0;
 #### Here age is an integer and we cannot assign it a non integer value. </div>
 &nbsp;
 
-## <span style = 'color: purple'> Dynamically Typed Languages: 
+##  Dynamically Typed Languages: 
 
 #### In languages like Javascript, Python and Ruby, data types of variables are determined at runtime / execution of the program so there's no need to explicitly define them. This allows great flexibility but also leads to potential risks if not handled carefully.
 
@@ -30,7 +30,7 @@ age = 'thirty'  # valid
 
 &nbsp;
 
-## <span style = 'color: purple'> Annotation
+##  Annotation
 
 ```js
 let sales: number = 123_456_789;
@@ -68,10 +68,10 @@ let arr: [number, string] = [1,'Sam']
 #### Here First element must be a number and second element must be a string. And only 2 elements.
 However if you .push() an element it won't show an error cuz TS ain't perfect.
 
-#### <div style = 'color: pink'> When no information is explicitly annotation then the compiler "infers" (deduces) the types of variables
+#### <divhen no information is explicitly annotation then the compiler "infers" (deduces) the types of variables
 </div>  
 
-## <span style = 'color: yellow'> Enums
+##  Enums
 
 #### Enumeration data type is used to represent associated constants. Convention of PascalCase.
 
@@ -111,9 +111,9 @@ function calculateTax(income: number): number {
 
 In 'Type Checking' of the config file: 
 
-<span style = 'color: yellow'>1. "noUnusedParameters": true  </span> : raises an error for unused params  
-<span style = 'color: yellow'>2. "noImplicitReturns": true</span> : raises an error if you forget to return a value  
-<span style = 'color: yellow'>3. "noUnusedLocals: true</span> :  raises an error if local variable isn't used
+1. "noUnusedParameters": true  </span> : raises an error for unused params  
+2. "noImplicitReturns": true</span> : raises an error if you forget to return a value  
+3. "noUnusedLocals: true</span> :  raises an error if local variable isn't used
 
 #### And inside the config file: 
 
@@ -258,7 +258,7 @@ let mesurement: Metric = 'cm'
 
 ```
 
-### <div style = 'color: yellow'> Interfaces
+###  Interfaces
 
 They are very similar to types except they can only be used to describe shape of an object.
 
@@ -390,7 +390,7 @@ class Person {
 &nbsp;
 
 
-## <div style = 'color: purple'> Data / Access Modifiers
+##  Data / Access Modifiers
 
 #### They are used to define the accesibility of properties and methods of a class.
 
@@ -455,7 +455,7 @@ console.log(myDog.getInfo()); // Output: "Hi"
 &nbsp;
 
 
-## <div style = 'color: yellow'>  Type Assertion </div>
+##   Type Assertion </div>
 
 #### It is a way of explicitly informing the compiler that we know more about the data type than it.
 
@@ -588,7 +588,7 @@ Object.keys(student).map(key => {
 
 ```
 &nbsp;
-## <div style = 'color: yellow'> Generic
+##  Generic
 
 #### Generic  allows to create 'type variables' which is used to make functions, classes, etc flexible. <T> is a convention
 
@@ -696,7 +696,7 @@ console.log (getUserProperty(usersArray, "email"))  // ['Sincere@april.biz', 'Sh
 
 &nbsp;
 
-## <div style = 'color: yellow'> Utility Types  </div>
+##  Utility Types  </div>
 
 #### Utility types are tools used for transforming and manipulating types and interfaces. 
 
@@ -739,23 +739,14 @@ const newestAssign = (assign: Readonly<Assignment>): Assignment =>{
 
 newestAssign.grade = 100 // invalid
 
-```  
-
-```ts
-const hexColorMap: Record<string, string> = {
+```  d<string, string> = {
     red: "#FF0000",
     blue: "00FF00",
     green "#0000FF"
 }
 ```
 #### Record <T, K> where T is type and K is key creates a new type with those assigned type values. Kinda like a shortcut for: 
-
-```ts
-interface HexColorMap{ 
-    [key: string]: string
-}
-
-const hexColorMap: HexColorMap = {...}
+[key: string]: strinlorMap }
 ```  
 
 ```ts
