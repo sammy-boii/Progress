@@ -1,7 +1,7 @@
 
 ##  Statically Typed Languages: 
 
-#### In languages like C++, C#, Java, the data types of variables are determined at compile-time meaning me must explicitly define its type and cannot be changed to another data type during the execution of the program.
+ In languages like C++, C#, Java, the data types of variables are determined at compile-time meaning me must explicitly define its type and cannot be changed to another data type during the execution of the program.
 
 ```c
 #include <stdio.h>
@@ -12,21 +12,21 @@ return 0;
 }
 ```
 
-#### Here age is an integer and we cannot assign it a non integer value. </div>
+ Here age is an integer and we cannot assign it a non integer value. </div>
 &nbsp;
 
 ##  Dynamically Typed Languages: 
 
-#### In languages like Javascript, Python and Ruby, data types of variables are determined at runtime / execution of the program so there's no need to explicitly define them. This allows great flexibility but also leads to potential risks if not handled carefully.
+ In languages like Javascript, Python and Ruby, data types of variables are determined at runtime / execution of the program so there's no need to explicitly define them. This allows great flexibility but also leads to potential risks if not handled carefully.
 
 ```python
 age = 30;
 age = 'thirty'  # valid
 ```
 
-#### So in a nutshell Typescript is bascially a superset of Javascript that supports static type checking and other functionalities. 
+ So in a nutshell Typescript is bascially a superset of Javascript that supports static type checking and other functionalities. 
 
-#### A typescript compiler is needed to transpile the Typescript code into vanilla Javascript for browsers to understand it.
+ A typescript compiler is needed to transpile the Typescript code into vanilla Javascript for browsers to understand it.
 
 &nbsp;
 
@@ -48,9 +48,9 @@ level = 'a' // with 'any' data type we can dynamically type which kinda looses t
 
 ```
 
-#### No need to explicitly annotate the data type everytime.
+ No need to explicitly annotate the data type everytime.
 
-#### JS arrays can have both strings and integers: 
+ JS arrays can have both strings and integers: 
 
 ```ts
 let dynamicArr: any[] = [1,2,'3']; // valid
@@ -65,15 +65,17 @@ let strArr: string[] = ['a','b','c']
 let arr: [number, string] = [1,'Sam'] 
 ```
 
-#### Here First element must be a number and second element must be a string. And only 2 elements.
+ Here First element must be a number and second element must be a string. And only 2 elements.
 However if you .push() an element it won't show an error cuz TS ain't perfect.
 
-#### <divhen no information is explicitly annotation then the compiler "infers" (deduces) the types of variables
-</div>  
+ When no information is explicitly annotation then the compiler "infers" (deduces) the types of variables
+ 
+
+&nbsp;
 
 ##  Enums
 
-#### Enumeration data type is used to represent associated constants. Convention of PascalCase.
+ Enumeration data type is used to represent associated constants. Convention of PascalCase.
 
 ```ts
 enum Size { Small = 's', Medium = 12, Large }  // by default first is 0, 1, 2, ...
@@ -87,14 +89,14 @@ tsc will increment Large by 1 if there is a number before it.
 ```ts
 enum Size { Small = 'a', Medium = 'b', Large }
 ```
-#### In theory here Large's value should be 'c' but it'll ask to initialize it anyway.
+ In theory here Large's value should be 'c' but it'll ask to initialize it anyway.
 
 ```ts
 const enum ...
 ```
-#### If you add const then the transpiled JS will be much more optimized / easier to read. 
+ If you add const then the transpiled JS will be much more optimized / easier to read. 
 
-#### By default JS function returns undefined.
+ By default JS function returns undefined.
 
 ```ts
 function calculateTax(income: number): void {
@@ -111,11 +113,11 @@ function calculateTax(income: number): number {
 
 In 'Type Checking' of the config file: 
 
-1. "noUnusedParameters": true  </span> : raises an error for unused params  
-2. "noImplicitReturns": true</span> : raises an error if you forget to return a value  
-3. "noUnusedLocals: true</span> :  raises an error if local variable isn't used
+<span style = 'color: pink'>1. "noUnusedParameters": true  </span> : raises an error for unused params  
+<span style = 'color: pink'>2. "noImplicitReturns": true</span> : raises an error if you forget to return a value  
+<span style = 'color: pink'>3. "noUnusedLocals: true</span> :  raises an error if local variable isn't used
 
-#### And inside the config file: 
+ And inside the config file: 
 
 ```ts
   "include": [
@@ -136,7 +138,7 @@ function calculateTax(income: number, year?: number): number {
 calculateTax(50_000)
 ```
 
-#### ? means optional in parameter. Here 'year' would be undefined so we used || to avoid error. You can do assign it a default value: 
+ ? means optional in parameter. Here 'year' would be undefined so we used || to avoid error. You can do assign it a default value: 
 
 ```ts
 function calculateTax(income: number, year = 2022): number {
@@ -148,7 +150,7 @@ function calculateTax(income: number, year = 2022): number {
 calculateTax(50_000)
 ```
 
-#### If you do pass a value then it'll overwrite the default value.
+ If you do pass a value then it'll overwrite the default value.
 
 ```ts
 let person = {id: name}
@@ -168,9 +170,9 @@ let employee: {
 }
 ```
 
-#### Here employee is an object with a retire method. While defining a method we need to write the number and type of parameter along with it's return type. Adding readonly makes the id immutable.
+ Here employee is an object with a retire method. While defining a method we need to write the number and type of parameter along with it's return type. Adding readonly makes the id immutable.
 
-#### This code doesn't follow the DRY principle. (Don't Repeat Yourself) so we use Type Alias:
+ This code doesn't follow the DRY principle. (Don't Repeat Yourself) so we use Type Alias:
 
 ```ts
 type Employee = {
@@ -189,7 +191,7 @@ let employee_1: Employee = {
 
 ```
 
-#### Type Alias is like a blueprint for annonating stuff mainly objects.
+ Type Alias is like a blueprint for annonating stuff mainly objects.
 
 ```ts
 function kgToLbs (weight: number | string) : number {
@@ -203,7 +205,7 @@ kgToLbs(10);
 kgToLbs('10kg');
 ```
 
-#### "|" is called Union Type that allows parameters and varaibles to have mutiple data type.
+ "|" is called Union Type that allows parameters and varaibles to have mutiple data type.
 ```ts
 let Tuple = [string | number] = [1] /* or */ ['a']
 
@@ -222,7 +224,7 @@ let re: RegExp = /\w+/g
 ```
 &nbsp;
 
-#### Type intersection is a way to combine mutiple types into a single type that includes all the methods and properties. It is denoted by "&".
+ Type intersection is a way to combine mutiple types into a single type that includes all the methods and properties. It is denoted by "&".
 
 ```ts
 type PrivateInfo = {
@@ -258,12 +260,14 @@ let mesurement: Metric = 'cm'
 
 ```
 
-###  Interfaces
+&nbsp;
+
+## Interfaces
 
 They are very similar to types except they can only be used to describe shape of an object.
 
 
-#### No need comma while describing shape of an object in both type and interface </div>
+ No need comma while describing shape of an object in both type and interface </div>
 
 ```ts
 interface Person {  // no equals symbol
@@ -273,7 +277,7 @@ interface Person {  // no equals symbol
 }
 ```
 
-#### Another major difference is that interfaces don't support union.
+ Another major difference is that interfaces don't support union.
 
 ```ts
 type Point = number | string 
@@ -361,7 +365,7 @@ person.register()
 
 ```
 
-#### Implementing an interface in a class does not annotate the datatype directly but it defines the contract the class must follow. TypeScript === RedundantScript
+ Implementing an interface in a class does not annotate the datatype directly but it defines the contract the class must follow. TypeScript === RedundantScript
 ```ts
 class Employee extends Person {  // inherits props and methods of Person class
     position: string
@@ -376,7 +380,7 @@ const employee = new Employee (3, 'Shawn', 'Developer')
 emp.register()
 ```  
 
-#### Ooo I figured something out: 
+ Ooo I figured something out: 
 
 ```ts
 class Person { 
@@ -386,13 +390,13 @@ class Person {
     }
 }
 ```  
-#### Even though 'public' is default, the annotation in the constructor doesn't seem to extend to the whole class so explicitly define it public
+ Even though 'public' is default, the annotation in the constructor doesn't seem to extend to the whole class so explicitly define it public
 &nbsp;
 
 
 ##  Data / Access Modifiers
 
-#### They are used to define the accesibility of properties and methods of a class.
+ They are used to define the accesibility of properties and methods of a class.
 
 1. Public - Accessed from anywhere
 2. Private - Accessed only from within the class
@@ -455,9 +459,9 @@ console.log(myDog.getInfo()); // Output: "Hi"
 &nbsp;
 
 
-##   Type Assertion </div>
+## Type Assertion 
 
-#### It is a way of explicitly informing the compiler that we know more about the data type than it.
+ It is a way of explicitly informing the compiler that we know more about the data type than it.
 
 ```ts
 const addOrConcat = (a: number, b: number, operation:'add' | 'concat') : number | string => {
@@ -478,9 +482,9 @@ let nextVal: number = addOrConcat (2, 2, 'concat') as number
 
 ```
 
-#### Anglular brackets syntax cannot be used in tsx files 
+ Anglular brackets syntax cannot be used in tsx files 
 
-#### If you're wondering where this would be useful: 
+ If you're wondering where this would be useful: 
 
 ```ts
 const img = document.querySelector('img')
@@ -528,7 +532,7 @@ let key: string = 'Pizza'
 console.log (transactionObj[key])
 ```
 
-#### This raises an error because in the interface we said that the keys can only be Pizza or Books and the compiler takes it quite literally and infers 'key' as a 'string' which we have not explicitly annotated. Idoesn't consider the fact that dynamic code could be provided so index signature is used:   
+ This raises an error because in the interface we said that the keys can only be Pizza or Books and the compiler takes it quite literally and infers 'key' as a 'string' which we have not explicitly annotated. Idoesn't consider the fact that dynamic code could be provided so index signature is used:   
 
 ```ts
 
@@ -588,9 +592,9 @@ Object.keys(student).map(key => {
 
 ```
 &nbsp;
-##  Generic
+## Generic
 
-#### Generic  allows to create 'type variables' which is used to make functions, classes, etc flexible. <T> is a convention
+ Generic  allows to create 'type variables' which is used to make functions, classes, etc flexible. <T> is a convention
 
 ```ts
 function genericFunction <T> (arg: T): T {
@@ -691,14 +695,14 @@ const getUserProperty = <T extends HasID, K extends keyof T> (users: T[], key: K
 console.log (getUserProperty(usersArray, "email"))  // ['Sincere@april.biz', 'Shanna@melissa.tv' ]
 ```
 
-#### The generic function accepts two type arguments: T and K. T is the array of objects T[] and K is the keys of the objects like "name", "phone"...
-#### It returns an array of the values of keys of the objects. T[K] is the value of the keys and T[K] [] is array of those values.
+ The generic function accepts two type arguments: T and K. T is the array of objects T[] and K is the keys of the objects like "name", "phone"...
+ It returns an array of the values of keys of the objects. T[K] is the value of the keys and T[K] [] is array of those values.
 
 &nbsp;
 
-##  Utility Types  </div>
+##  Utility Types 
 
-#### Utility types are tools used for transforming and manipulating types and interfaces. 
+ Utility types are tools used for transforming and manipulating types and interfaces. 
 
 ```ts
 interface Assignment { 
@@ -720,9 +724,9 @@ const assignment-1: Assignment = {
 const newAssign = updateAssignment (assignment-1, {grade: 95}))
 ```
 
-#### Partial<Type> constructs a new type with all the properties of 'Type' set to optional.
+ Partial<Type> constructs a new type with all the properties of 'Type' set to optional.
 
-#### So here we were able to pass just the grade without any issues cause the partial utility type set all the other properties to optional.
+ So here we were able to pass just the grade without any issues cause the partial utility type set all the other properties to optional.
 
 ```ts
 const newerAssign = (assign: Required <Assignment>): Assignment => {
@@ -739,14 +743,23 @@ const newestAssign = (assign: Readonly<Assignment>): Assignment =>{
 
 newestAssign.grade = 100 // invalid
 
-```  d<string, string> = {
+```  
+
+```ts
+const hexColorMap: Record<string, string> = {
     red: "#FF0000",
     blue: "00FF00",
     green "#0000FF"
 }
 ```
-#### Record <T, K> where T is type and K is key creates a new type with those assigned type values. Kinda like a shortcut for: 
-[key: string]: strinlorMap }
+ Record <T, K> where T is type and K is key creates a new type with those assigned type values. Kinda like a shortcut for: 
+
+```ts
+interface HexColorMap{ 
+    [key: string]: string
+}
+
+const hexColorMap: HexColorMap = {...}
 ```  
 
 ```ts
@@ -780,8 +793,8 @@ const score: AssignResult = {
 }
 ```
 
-#### Pick <T, K> creates a subset type / interface picking properties "K" from "T"
-#### Here studentID and grade are picked.
+ Pick <T, K> creates a subset type / interface picking properties "K" from "T"
+ Here studentID and grade are picked.
 
 ```ts
 type AssignPreview = Omit <Assignment, 'grade' | 'verified'>
@@ -792,7 +805,7 @@ const preview: AssignPreview = {
 }
 ```  
 
-#### Does the opposite of Pick and creates a new type by ommiting the selected properties.  
+ Does the opposite of Pick and creates a new type by ommiting the selected properties.  
 
 ```ts
 type Grades = 'A' | 'B' | 'C' | 'D' | 'U'
@@ -803,9 +816,9 @@ type highGrades = Extract <Grades, "A" | B>
 
 ```
 
-#### They are the same as Pick and Omit but they work with string literal union types instead of interfaces and types.
+ They are the same as Pick and Omit but they work with string literal union types instead of interfaces and types.
 
-#### Extract creates a new type by extracting the seleceted string literal and Exclude excludes them.
+ Extract creates a new type by extracting the seleceted string literal and Exclude excludes them.
   
 ```ts
 type nameList = "Dave" | "Sam" | null | undefined
