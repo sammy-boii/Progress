@@ -253,7 +253,7 @@ Obviously the rate in which the runtime and input increases isn't constant and v
 
   There are several more like cubic time, logarithmic time, linearithmetic (quasi-linear) time, exponential time, etc... 
 
-  <img src = 'https://miro.medium.com/v2/resize:fit:1400/1*xq73u1N7ZsTE2MJ9jsj0CA.png' width = 650 height = 400>
+  <img src = 'https://miro.medium.com/v2/resize:fit:1358/1*dWet_YU-5072Kcko7LzsuQ.jpeg' width = 700 height = 400>
 
 &nbsp;
 
