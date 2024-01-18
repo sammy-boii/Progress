@@ -39,7 +39,7 @@ And negative numbers do not have factorial. So we return 1 directly as we know 0
 
 ```js
 function fact(n) {
-  if (n == 0) {
+  if (n <= 1) {
     return 1  // base case
   }
   return n * fact(n - 1)  // recursive case

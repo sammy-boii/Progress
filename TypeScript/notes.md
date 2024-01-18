@@ -44,7 +44,7 @@ let profit = 5000; // auto annotates to number
 let level; //  annotates to any
 
 level = 1
-level = 'a' // with 'any' data type we can dynamically type which kinda looses the whole purpose of TS..
+level = 'a' // with 'any' data type we can dynamically type which kinda loses the whole purpose of TS..
 
 ```
 
