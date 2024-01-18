@@ -3,32 +3,32 @@
 const car = {
   name: "Ferrari",
   start() {
-    return "Starting";
-  },
-};
+    return "Starting"
+  }
+}
 
-// * here everything (name, start() and obj too) will have a property called __proto__
+// * here everything (name, start() and car too) will have a property called __proto__
 
-console.log(obj.__proto__);
-console.log(obj.name.__proto__);
+console.log(car.__proto__)
+console.log(car.name.__proto__)
 
 // * It is a reference to another object from where its inheriting stuff. Like 'name' is a string and it's __proto__ would be a 'String' object where it would inherit .length, .charAt(), .toUpperCase(), etc from. Same with start() and obj.
 
 const vehicle = {
-  stop: () => "Stopping",
-};
+  stop: () => "Stopping"
+}
 
-Object.setPrototypeOf(car, vehicle);
+Object.setPrototypeOf(car, vehicle)
 
 //or
 
-car.__proto__ = vehicle;
+car.__proto__ = vehicle
 
-console.log(car.stop());
+console.log(car.stop())
 
 // * Now 'vehicle' object is a prototype of the 'car' object and can access it properties and methods.
 
-console.log(car.brake()); // undefined
+console.log(car.brake()) // undefined
 
 // * It first checks in itself, if not then it's prototype. If still not found then it's prototype's prototype and the chain goes on. This is called prototype chaining.
 

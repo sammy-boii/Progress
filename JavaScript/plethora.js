@@ -241,7 +241,7 @@ set.clear() // deletes everything
 
 const arr = Array.from(set) // converting back to array
 
-// * Symbols are usually used as unique keys for objects
+//* Symbols are primitive datatype that are guaranteed to be unique. Usually used as keys
 
 const symKey = Symbol("uniqueKey")
 
@@ -249,24 +249,52 @@ const symKey = Symbol("uniqueKey")
 
 // Reminder: Factory function returns an object itself rather than creating a new instance of a class.
 
-let myObject = {}
-myObject[symKey] = "value1"
+const mySymbol = Symbol("mySymbol")
 
-// * Map is basically an object with flexible keys
+// Using the Symbol as a property key
+const myObject = {
+  a: 1,
+  [mySymbol]: "value1"
+}
 
-const map = new Map()
+console.log(myObject[mySymbol])
 
-map.set("name", "John")
-map.set(12, "age")
+const sym1 = Symbol("hi")
+const sym2 = Symbol("hi")
 
-map.get(12) // 'age'    vice versa doesn't work
-map.has("name") // true
+console.log(sym1 == sym2) // false
 
-map.delete("name")
-map.clear()
+let obj = { a: 1, b: 2, b: 3 } // {a:1,b:3}
 
-const num = 10.423342
-console.log(num.toFixed(2))
+// with symbols u can have two properties as  Symbol('b') cuz they are technicaly unique
+
+// It is a data structure similar to objects except it can have keys and values of any datatypes including objects
+
+// let obj = {{a:1}:1, b:1} not valid
+
+//* Maps are similar to objects with very verstatile keys including objects
+
+let myMap = new Map()
+
+myMap.set("key1", "value1")
+myMap.set(2, "value2")
+myMap.set({ name: "John" }, "value3")
+
+console.log(myMap.get("key1")) // u can't .get() from values
+console.log(myMap.get(2))
+
+console.log(myMap.has("key1"))
+
+// Iterating through the Map
+myMap.forEach((value, key) => {
+  console.log(`${key} => ${value}`)
+})
+
+console.log(map)
+
+const num = 10.523342
+console.log(num.toFixed(2)) // 10.52
+console.log(num.toFixed()) // 11
 
 // The statement "everything is an object".
 
@@ -289,3 +317,11 @@ console.log(num1 + num2) // 20
 // after the completion of the operation, its converted back to the primitive value and the applied property doesn't persist.
 
 // that's why the type shows as number or string or boolean and not object.
+
+// * Iterables are anything that be iterated over using loops and such. They have an iterable protocol where a [Symbol.iterator]() method is present. That method has a next() method which decides its next value to be iterated over in a loop. Strings, arrays, objects, sets, etc...
+
+//* Enumerable properties in JavaScript are properties of an object that can be iterated through. These properties can be accessed using iteration methods such as Object.keys(obj), Object.values(obj), or by iterating over the indexes of an array (arr[i]
+
+console.log(Object.keys(obj)) // array of keys
+console.log(Object.values(obj)) // array of values
+console.log(Object.entries(obj)) // nested array of keys and values
