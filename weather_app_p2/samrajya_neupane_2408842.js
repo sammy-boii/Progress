@@ -7,10 +7,6 @@ addEventListener("DOMContentLoaded", () => {
   gsap.to("body", { y: 0 })
 })
 
-document
-  .querySelector("form")
-  .addEventListener("submit", (e) => e.preventDefault())
-
 // DOM elements
 
 const inputBar = document.querySelector(".search-input")
@@ -46,11 +42,24 @@ const precipitation = cardRight.querySelector(".precipitation")
 const humidity = cardRight.querySelector(".humidity")
 const wind = cardRight.querySelector(".wind")
 
+// slider's copy
+
+const sliderCopy = document.querySelector(".slider").cloneNode(true)
+rightFooter.appendChild(sliderCopy)
+
 // fetching data from the php script
 
 async function fetchData(cityName = "Tiruppur") {
   try {
-    const response = await fetch("samrajya_neupane_2408842.php")
+    const response = await fetch(
+      `http://localhost/weather_app_p2/samrajya_neupane_2408842.php?city=${cityName}`
+    )
+    // const response = await fetch(
+    //   "https://api.openweathermap.org/data/2.5/weather?q=Tiruppur&appid=e64642dcaf18a4c680f82227fc60e855&units=metric"
+    // )
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`)
+    }
 
     const data = await response.json()
     console.log(data)

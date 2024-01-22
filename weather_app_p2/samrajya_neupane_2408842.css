@@ -63,6 +63,17 @@ body {
     }
 }
 
+/* weather cards slide animation */
+
+@keyframes slide {
+    from{
+        transform: translateX(0);
+}
+    to{
+        transform: translateX(-100%);
+    }
+}
+
 .blob {
     background: rgba(53, 50, 50, 0.1);
     position: absolute;
@@ -193,6 +204,7 @@ input{
     top: 23%;
     opacity: 0.8;
     left: 10%;
+    overflow: hidden;
     z-index: 5;
     border: 2px solid rgba(0,0,0,0.5);
     box-shadow: 0 0 10px 10px rgba(0,0,0,0.5);
@@ -211,24 +223,6 @@ input{
 
 .card-left img {
     filter: contrast(0.9);
-}
-
-.card-right {
-    overflow-wrap: break-word;
-    border-radius: 12px;
-    width: 55%;
-    padding: 25px 25px 35px 25px;
-}
-
-
-.card-left > .header, .card-right > .header {
-    height: 45%;
-    width: 100%;
-}
-
-.card-left > .footer, .card-right > .footer {
-    height: 55%;
-    width: 100%;
 }
 
 .card-left .week-day {
@@ -259,6 +253,22 @@ input{
     font-weight:600;
 }
 
+.card-left > .header, .card-right > .header {
+    height: 45%;
+}
+
+
+.card-left > .footer, .card-right > .footer {
+    height: 55%;
+}
+
+.card-right > .header {
+    overflow-wrap: break-word;
+    border-radius: 12px;
+    width: 30%;
+    padding: 25px 25px 35px 25px;
+}
+
 .card-right > .header > div{
     padding: 2px;
     display: flex;
@@ -270,6 +280,43 @@ input{
     letter-spacing: 1px;
 }
 
+.card-right > .footer {
+    border-radius: 20px;
+    padding: 10px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        padding: 10px;
+        top: 5%;
+        height: 100%;
+        width: 3vw;
+        z-index: 1000;
+        background: linear-gradient(to left, rgba(0,0,0,0), #202020);
+    }
+}
+
+.card-right > .footer > .slider {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    padding-left: 20px;
+    animation: slide 30s infinite linear;
+    position: relative;
+    width: 100%;
+    & > * {
+        background: rgba(255,255,255,0.1);
+        box-shadow: 4px 4px 5px 2px rgba(0,0,0,0.6);
+        width: 6vw;
+        border-radius: 12px;
+        height: 100%;
+        overflow: hidden;
+    }
+}
 
 footer {
     position: absolute;
