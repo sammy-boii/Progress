@@ -2,9 +2,9 @@
 
 It is like txt that supports code formatting and other stuff so better notes  
 
- npx 
+Node Package Executable (npx) vs Node Package Manager (npm):
 
-Node Package Executable will allow you to use the package without installing the package  
+npx is usually used for executing command like initializing a project without having to install anything. npm is used for installing dependencies and such. 
 &nbsp; 
 
 ```powershell
@@ -21,25 +21,30 @@ npx create-react-app
 **or**
 
 ```powershell
-npm create vite@latest
+npx create vite@latest
+```
+
+```powershell
+npx create vite@latest --template react .
 ```
 &nbsp; 
 
- Name is hella sensetive
  React components must start with a capital to differentiate them
- className, htmlFor and onClick are camelCase in REACT.
-
-&nbsp; 
+ className, htmlFor and onClick are camelCase in react.
 
  Webpack is a bundler that bundles various files into one single file.
+
+ Vite uses Rollup for bundling. 
 
  Vite utilizes the modules and is a lot faster than the traditional bundler. 
 
  It has Hot Module Replacement (HMR) so we can see the changes in real time.
 
+ Babel converts ES6, ES7 to versions that browsers understand and also converts JSX to vanilla JS. 
+
  Transpiler is used to convert code of one programming language to another. Typescript is a transpiler and a super-set of JS. SCSS is both a traspiler and bundler of CSS.
 
- CRA, Vite are development tools. Without them you'd have to manually installed every dependency and building tool like babel, webpack, react, css loaders, etc...
+ CRA, Vite are development tools. Without them you'd have to manually installed every dependency and building tool like babel, webpack, react, css loaders, ESLint, React-DOM, etc...
 &nbsp; 
 ```javascript 
 
@@ -50,11 +55,8 @@ document.write(name)
 
 ```
 
+ BTW this isn't JSX although very similar.
 
-
- console prints as it is but document bolds it. BTW this isn't JSX although very similar.
-
- Babel converts ES6, ES7 to versions that browsers understand and also converts JSX to vanilla JS. 
 
 ```javascript
 const element = (
@@ -75,6 +77,8 @@ const element = React.createElement(
 'Hello, World!'
 );
 ```
+
+In the node_modules, there are @ packages, they are called scope packages. @babel/core. The package name is 'core' and its avaialable only in babel to avoid naming conflicts.
 
 
  node.js is a runtime environement for js and npm is package manager that allows us to easily install libraries, frameworks, etc.
@@ -164,8 +168,9 @@ const ChildComponent = (props) => {
 
     return (
         <div>
-        <h1> {props.name}</h1>
-        <p> {props.age} </p>
+            <h1> {props.name}</h1>
+            <p> {props.age} </p>
+        </div>
     )
 
 };
@@ -359,10 +364,10 @@ export default function App() {
   let entry = info.isEligible ? './star.png' : './blank-star.png';
 
  function rigged() {
-  setInfo(prevInfo => {
+  setInfo(prevInfo => ({
     ...prevInfo,
     isEligible: !prevInfo.isEligible
-  });
+  }));
 }
 
 // info is an object with those state values. 
@@ -537,18 +542,7 @@ function MyComponent() {
    Declarative programming is where you don't describe the steps for the task. Prolog (the syntax is weird AF)
 <span style = 'color: green'> ✓ </span> What  <span style = 'color: red'> ✗ </span> How 
 
-&nbsp;
 
- JS inside {} and JSX will be executed instantly when the component is rendered so don't do:
-
-```html
-<button onclick = {alert('Hi!)}>
-
-<!-- instead do:  -->
-
-<button onclick = {() => alert('Hi')}>
-
-```
 &nbsp;
 
 ```js
@@ -667,41 +661,48 @@ export default function Counter() {
  UseReducer is like UseState but it manages more complex states. Managing lots of states can be difficult so useReducer is used. 
 
 ```js
+import { useReducer } from "react";
 
-import React, { useReducer } from 'react';
+function App() {
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return { count: state.count + 1 };
-    case 'DECREMENT':
-      return { count: state.count - 1 };
-    case 'RESET':
-      return { count: 0 };
-    default:
-      return state;
-  }
-};
-
-const Counter = () => {
- 
-  const [state, dispatch] = useReducer(reducer, { count: 0 });
-
-  return (
+    function reducer (state, action) {
+        switch(action.type){
+            case "INCREMENT":
+                return {count: state.count+1}
+            case "DECREMENT":
+                return {count: state.count-1}
+            default:
+                return state
+  
+    }
+    }
+    const [state, dispatch] = useReducer(reducer, {count: 0})
+    return (
     <div>
-      <p>Count: {state.count}</p>
-      <button onClick={() => dispatch({ type: 'INCREMENT' })}>Increment</button>
-      <button onClick={() => dispatch({ type: 'DECREMENT' })}>Decrement</button>
-      <button onClick={() => dispatch({ type: 'RESET' })}>Reset</button>
+        <button onClick = {()=>{dispatch({type: "INCREMENT", payload : {fullName:"Sam", timesChanged: 0}})}}> + </button>
+        {state.count}
+        <button onClick = {()=>{dispatch({type: "DECREMENT"})}}> - </button>
+
     </div>
-  );
-};
+    )
+}
 
-export default Counter;
+export default App;
 
+// payload is basically the additional data parameters we might need to pass
 
 ```
+&nbsp;
+### UseMemo
 
+```js
+const doubleNumber = useMemo(()=>{
+    for (let i=0;i<1000000000;i++) {}
+    return i*2
+},[number])
+
+// it caches the result of function. The function inside doesn't get called until the dependency array changes. Used for complex functions memoization
+```
 
  state is different states. Dispatch function is used to call the reducer function which takes two arguments (state, action). This function is outside the component to prevent unwanted re-renders of this function which can lower the performance.States are stored in an object.
 

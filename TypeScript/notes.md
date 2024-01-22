@@ -33,7 +33,7 @@ age = 'thirty'  # valid
 ##  Annotation
 
 ```js
-let sales: number = 123_456_789;
+let sales: number = 123_456_789.9;
 
 let course: string= 'Typescript';
 
@@ -78,18 +78,33 @@ However if you .push() an element it won't show an error cuz TS ain't perfect.
  Enumeration data type is used to represent associated constants. Convention of PascalCase.
 
 ```ts
-enum Size { Small = 's', Medium = 12, Large }  // by default first is 0, 1, 2, ...
+enum Direction {
+  North,
+  South,
+  West,
+  East
+}
+
+// they all have default numeric value starting from 0
+
+let myDirection = Direction.East
+
+// this is same as: let myDirection = 3
+
+console.log(myDirection)  // 3
+```
+
+```js
+enum Size { Small = 's', Medium = 12, Large } 
 
 let mySize : Size = Size.Large;
 
-console.log(Size);  // prints the thing as it is
 console.log(mySize) // 13
 ```
-tsc will increment Large by 1 if there is a number before it.
 ```ts
 enum Size { Small = 'a', Medium = 'b', Large }
 ```
- In theory here Large's value should be 'c' but it'll ask to initialize it anyway.
+This will cause an error and ask u to manually initialize Large.
 
 ```ts
 const enum ...
@@ -138,7 +153,7 @@ function calculateTax(income: number, year?: number): number {
 calculateTax(50_000)
 ```
 
- ? means optional in parameter. Here 'year' would be undefined so we used || to avoid error. You can do assign it a default value: 
+ ? means optional in parameter. Here 'year' would be undefined so we used || to avoid error. You could also assign it a default value: 
 
 ```ts
 function calculateTax(income: number, year = 2022): number {
@@ -152,10 +167,6 @@ calculateTax(50_000)
 
  If you do pass a value then it'll overwrite the default value.
 
-```ts
-let person = {id: name}
-person.name = 'Sam';   // not valid unlike JS
-```
 
 ```ts
 let employee: {
@@ -399,7 +410,7 @@ class Person {
  They are used to define the accesibility of properties and methods of a class.
 
 1. Public - Accessed from anywhere
-2. Private - Accessed only from within the class
+2. Private - Accessed only from within the class (not even its instances)
 3. Protected - Accessed within the class and derived / sub classes
 
 In the above example Employee is a subclass of Person class.
