@@ -63,7 +63,7 @@ body {
     }
 }
 
-/* weather cards slide animation */
+/* infinite scrolling animation */
 
 @keyframes slide {
     from{

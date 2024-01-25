@@ -42,7 +42,7 @@ const precipitation = cardRight.querySelector(".precipitation")
 const humidity = cardRight.querySelector(".humidity")
 const wind = cardRight.querySelector(".wind")
 
-// slider's copy
+// slider's copy, done for the infinite scrolling effect
 
 const sliderCopy = document.querySelector(".slider").cloneNode(true)
 rightFooter.appendChild(sliderCopy)
@@ -54,9 +54,7 @@ async function fetchData(cityName = "TIRUPPUR") {
     const response = await fetch(
       `http://localhost/weather_app_p2/api_fetch.php?city=${cityName}`
     )
-    // const response = await fetch(
-    //   "https://api.openweathermap.org/data/2.5/weather?q=Tiruppur&appid=e64642dcaf18a4c680f82227fc60e855&units=metric"
-    // )
+
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`)
     }
@@ -66,7 +64,7 @@ async function fetchData(cityName = "TIRUPPUR") {
     console.log("Data", data)
     document.title = `☁ ${cityName}'s Weather ☁`
     modifyCard(data, cityName)
-    setPastData()
+    setPastData(cityName)
   } catch (error) {
     toggleAnimation()
     console.log("Error in fetching:", error)
@@ -76,6 +74,8 @@ async function fetchData(cityName = "TIRUPPUR") {
     }, 1000)
   }
 }
+
+// initial rendering
 
 fetchData()
 setPastData()
@@ -135,7 +135,7 @@ function handleInput(e) {
   }
 }
 
-async function setPastData() {
+async function setPastData(cityName = "TIRUPPUR") {
   try {
     const response = await fetch("past_data.php")
     const data = await response.json()
@@ -155,21 +155,38 @@ async function setPastData() {
         div.style.display = "flex"
         div.style.filter = "grayscale(30%)"
         div.style.gap = "4px"
-        div.style.paddingTop = "15px"
+        div.style.paddingTop = "20px"
+        div.style.paddingBottom = "20px"
         div.style.height = "100%"
         div.style.flexDirection = "column"
         div.style.alignItems = "center"
-        div.innerHTML = `
+        div.style.justifyContent = "center"
+        if (cityName === "TIRUPPUR") {
+          div.innerHTML = `
           <h5>${day}</h5>
           <h3>${data[i].temperature} &deg;C</h3>
-          <img src="https://openweathermap.org/img/wn/${data[i].weather_icon}@2x.png" alt="Weather Icon">
+          <img src="https://openweathermap.org/img/wn/${data[i].weather_icon}@2x.png" width = 100px height = 100px alt="Weather Icon">
+          <h6>Humidity: ${data[i].humidity}%</h6>
+          <h6>Wind: ${data[i].wind_speed} km/h</h6>
+
         `
+        } else {
+          div.alignItems = "center"
+          div.justifyContet = "center"
+          div.innerHTML = `<h4>No</h4>
+          <h4>cached</h4>
+          <h4>data</h4>
+          <h4>available</h4>
+          <h4>:(</h4>`
+        }
       })
     })
   } catch (err) {
     console.log("Error while fetching", err)
   }
 }
+
+// gsap starting point
 
 let reversed = false
 

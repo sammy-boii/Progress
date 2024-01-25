@@ -1,6 +1,9 @@
 <?php
 
-// just returns false if the connection fails. done to prevent error propagation but does have some setbacks while debugging
+// Student's Name: Samrajya Neupane
+// Student's ID: 2408842
+
+// this script contains the function to connect to the database, get the latest timestamp from the database, get cached json data and set cached json data.
 
 function connect_to_db()
 {
@@ -10,10 +13,19 @@ function connect_to_db()
     $dbname = 'weather_data_db';
 
     try {
-        $conn = mysqli_connect($host, $username, $password, $dbname);
+        $conn = mysqli_connect($host, $username, $password);
 
         if (!$conn) {
             return false;
+        }
+
+        $db_check = mysqli_select_db($conn, $dbname);
+
+        if (!$db_check) {
+            $create_db_query = "CREATE DATABASE IF NOT EXISTS $dbname";
+            mysqli_query($conn, $create_db_query);
+
+            mysqli_select_db($conn, $dbname);
         }
 
         return $conn;
@@ -21,6 +33,8 @@ function connect_to_db()
         return false;
     }
 }
+
+// doesn't return an error because this function is used in every script and in case of an error propagation it could mess up the entire app.
 
 
 function get_latest_data_timestamp()

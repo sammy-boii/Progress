@@ -1,5 +1,10 @@
 <?php
 
+// Student's Name: Samrajya Neupane
+// Student's ID: 2408842
+
+// this script extracts past data from the database and sends it to setPastData() in JS
+
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
 
@@ -9,7 +14,7 @@ function getWeatherData()
 {
     $conn = connect_to_db();
 
-    $query = "SELECT temperature, weather_icon, timestamp FROM weather_data";
+    $query = "SELECT temperature, weather_icon, timestamp, humidity, wind_speed FROM weather_data";
     $result = mysqli_query($conn, $query);
 
     if (!$result) {

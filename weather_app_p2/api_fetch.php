@@ -1,5 +1,10 @@
 <?php
 
+// Student's Name: Samrajya Neupane
+// Student's ID: 2408842
+
+// this script fetches from the OpenWeatherAPI, also does time calculations and sets and returns cached data according.
+
 header("Access-Control-Allow-Origin: *");
 header('Content-Type: application/json');
 
@@ -7,7 +12,6 @@ include_once('database.php');
 
 $api_key = "e64642dcaf18a4c680f82227fc60e855";
 
-// Fetching from the API
 function fetch_data()
 {
     $city_name = ""; // for functional scoping
