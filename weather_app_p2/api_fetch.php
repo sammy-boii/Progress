@@ -24,23 +24,26 @@ function fetch_data()
 
     global $api_key;
 
-    if ($city_name == 'TIRUPPUR') {
+    if (connect_to_db()) {
 
-        // the default time is of Morocco so offset is added to make it easier to work with
-        $current_time = time() + (4 * 60 * 60) + (45 * 60);
+        if ($city_name == 'TIRUPPUR') {
 
-        if (is_numeric(get_latest_data_timestamp())) {
-            $time_difference = $current_time - get_latest_data_timestamp();
-        } else {
-            $time_difference = 86400;
-        }
+            // the default time is of Morocco so offset is added to make it easier to work with
+            $current_time = time() + (4 * 60 * 60) + (45 * 60);
 
-        // returning cached data if $time_difference is less than a day
-        if ($time_difference < 86400) {
-            if (get_cached_data()) {
-                $cached_response = get_cached_data();
-                echo $cached_response;
-                return;
+            if (is_numeric(get_latest_data_timestamp())) {
+                $time_difference = $current_time - get_latest_data_timestamp();
+            } else {
+                $time_difference = 86400;
+            }
+
+            // returning cached data if $time_difference is less than a day
+            if ($time_difference < 86400) {
+                if (get_cached_data()) {
+                    $cached_response = get_cached_data();
+                    echo $cached_response;
+                    return;
+                }
             }
         }
     }
