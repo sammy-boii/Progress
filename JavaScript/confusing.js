@@ -6,7 +6,7 @@ function square(num, callback) {
 }
 
 function displayResult(result) {
-  console.log("The result is: " + result)
+  console.log('The result is: ' + result)
 }
 
 square(5, displayResult) // Output: The result is: 25
@@ -21,7 +21,7 @@ function cube(num, callback) {
 }
 
 cube(3, function (result) {
-  console.log("The result is: " + result)
+  console.log('The result is: ' + result)
 })
 
 // Output: The result is: 27
@@ -40,7 +40,7 @@ function double(num) {
 }
 
 calculate(6, double, function (result) {
-  console.log("The result is: " + result)
+  console.log('The result is: ' + result)
 })
 
 // Output: The result is: 12

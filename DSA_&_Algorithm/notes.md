@@ -142,6 +142,35 @@ console.log("\n\n The 4th number is ", fibonacci(4)) //  3
 
 &nbsp;
 
+# Space Complexity
+
+It is a way of showing the amount of memory used by a function or some code as the size of input increases.
+
+It is in the opposite end of time complexity so. 
+
+> Merge Sort has low time complexity but high space complexity.
+
+
+> Bubble Sort has high time complexity but low space complexity.
+
+&nbsp;
+
+
+```js
+function foo() {
+  z = a+b+c
+  return z
+}
+```
+
+a, b, c, z = 4 bytes as they are integers  
+
+so 4*4 = 16 bytes  
+
+but we need to add +4 for the return statement because it technically gets stored in a variable as well outside the function.
+
+Space Complexity = 16 + 4 = 20 bytes 
+
 ## Time Complexity
 
 It is a way of showing of how the runtime of a function increases as the number of input increases. 
